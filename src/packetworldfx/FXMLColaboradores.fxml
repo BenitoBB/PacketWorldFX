@@ -6,13 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLColaboradoresController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLColaboradoresController">
    <children>
-      <TableView fx:id="tabla" layoutX="210.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tvColaboradores" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="736.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colNoPersonal" prefWidth="79.07193183898926" text="NoPersonal" />
+          <TableColumn fx:id="colNombre" prefWidth="68.92803955078125" text="Nombre" />
+            <TableColumn fx:id="colAPaterno" prefWidth="75.0" text="A. Paterno" />
+            <TableColumn fx:id="colAMaterno" prefWidth="75.0" text="A. Materno" />
+            <TableColumn fx:id="colRol" prefWidth="85.33831787109375" text="Rol" />
+            <TableColumn fx:id="colSucursal" prefWidth="75.0" text="Sucursal" />
+            <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Teléfono" />
+            <TableColumn fx:id="colCorreo" minWidth="0.0" prefWidth="109.36679077148438" text="Correo" />
+            <TableColumn fx:id="colLicencia" prefWidth="77.0" text="Licencia" />
         </columns>
       </TableView>
+      <Button layoutX="300.0" layoutY="31.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button layoutX="393.0" layoutY="30.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button layoutX="464.0" layoutY="30.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
+      <TextField fx:id="tfBuscar" layoutX="36.0" layoutY="32.0" prefHeight="25.0" prefWidth="226.0" promptText="Buscar por NoPersonal, Rol, Nombre" />
    </children>
 </AnchorPane>

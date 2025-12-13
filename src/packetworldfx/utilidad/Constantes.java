@@ -19,6 +19,12 @@ public class Constantes {
     public static final String APPLICATION_FORM = "application/x-www-form-urlencoded";
     public static final String APPLICATION_JSON = "application/json";
 
+    // Llaves Hashmap
+    public static final String KEY_ERROR = "error";
+    public static final String KEY_MENSAJE = "mensaje";
+    public static final String KEY_LISTA = "lista_valores";
+    public static final String KEY_OBJETO = "objeto";
+
     // Mensajes de Errores 
     public static final String ERROR_GENERICO = "Lo sentimos, hubo un error.";
     public static final String ERROR_INFORMACION = "Lo sentimos, hubo un error al obtener la información.";
@@ -30,4 +36,17 @@ public class Constantes {
     public static final String MSJ_DATOS_REQUERIDOS = "Datos requeridos para poder realizar la operación solicitada.";
     public static final String MSJ_ERROR_CREDENCIALES = "Lo sentimos hay problemas para verificar sus credenciales.";
 
+    public static final String MSJ_ERROR_OBTENER_ROLES = "Lo sentimos. No se pudieron obtener los roles. Intente mas tarde";
+
+    public static final String MSJ_ERROR_OBTENER_SUCURSALES = "Lo sentimos. No se pudieron obtener las sucursales. Intente más tarde.";
+
+    // Mensajes específicos Colaborador
+    public static final String MSJ_ERROR_REGISTRO_COLABORADOR = "Lo sentimos, hubo un problema al registrar el colaborador. Intente más tarde.";
+    public static final String MSJ_ERROR_LICENCIA_REQUERIDA = "El número de licencia es obligatorio para el rol Conductor.";
+    public static final String MSJ_ERROR_DATOS_INVALIDOS = "Campos en formato incorrecto, por favor verifica la información enviada.";
+    public static final String MSJ_ERROR_ACTUALIZAR_COLABORADOR = "Error al actualizar el colaborador";
+    public static final String MSJ_ERROR_ELIMINAR_COLABORADOR = "No fue posible eliminar el colaborador. Intenta más tarde.";
+
+    // Roles del sistema (IDs de negocio)
+    public static final Integer ID_ROL_CONDUCTOR = 3;
 }

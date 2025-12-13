@@ -26,7 +26,7 @@ public class ConexionAPI {
             if (codigo == HttpURLConnection.HTTP_OK) {
                 respuesta.setContenido(Utilidades.streamToString(conexionHTTP.getInputStream()));
             }
-
+            respuesta.setCodigo(codigo);
         } catch (MalformedURLException e) {
             respuesta.setCodigo(Constantes.ERROR_MALFORMED_URL);
             respuesta.setContenido(e.getMessage());

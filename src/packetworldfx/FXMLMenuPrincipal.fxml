@@ -8,19 +8,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="426.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLMenuPrincipalController">
+<AnchorPane prefHeight="434.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLMenuPrincipalController">
    <children>
-      <Pane layoutY="94.0" prefHeight="339.0" prefWidth="138.0" style="-fx-background-color: #45b6d1;">
+      <Pane layoutY="94.0" prefHeight="339.0" prefWidth="108.0" style="-fx-background-color: #45b6d1;">
          <children>
-            <Button layoutX="22.0" layoutY="302.0" mnemonicParsing="false" onAction="#clickCerrarSesion" style="-fx-background-color: #ff7a00;" text="Cerrar sesión" textFill="WHITE">
+            <Button layoutX="7.0" layoutY="302.0" mnemonicParsing="false" onAction="#clickCerrarSesion" style="-fx-background-color: #ff7a00;" text="Cerrar sesión" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
             </Button>
+            <VBox alignment="CENTER_LEFT" layoutY="29.0" prefHeight="200.0" prefWidth="101.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#clickIrColaboradores" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Colaboradores">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#clickIrClientes" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Clientes">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#clickIrSucursales" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Sucursales">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#clickIrUnidades" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Unidades">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#clickIrPaquetes" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Paquetes">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#clickIrEnvios" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: transparent;" text="Envíos">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </Pane>
-      <AnchorPane id="apCentral" fx:id="apCentral" layoutX="138.0" layoutY="94.0" prefHeight="339.0" prefWidth="472.0" style="-fx-background-color: #1ea09e;" />
-      <Pane prefHeight="59.0" prefWidth="610.0" style="-fx-background-color: #004B8D;">
+      <AnchorPane id="apCentral" fx:id="apCentral" layoutX="104.0" layoutY="95.0" prefHeight="339.0" prefWidth="696.0" style="-fx-background-color: #1ea09e;" />
+      <Pane prefHeight="59.0" prefWidth="799.0" style="-fx-background-color: #004B8D;">
          <children>
             <Label fx:id="lbHeader" layoutX="14.0" layoutY="14.0" text="Bienvenido (a)" textFill="WHITE">
                <font>
@@ -29,39 +63,6 @@
             </Label>
          </children>
       </Pane>
-      <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="106.0" prefHeight="200.0" prefWidth="109.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#clickIrColaboradores" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Colaboradores">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#clickIrClientes" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Clientes">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#clickIrSucursales" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Sucursales">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#clickIrUnidades" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Unidades">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#clickIrPaquetes" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Paquetes">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#clickIrEnvios" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: transparent;" text="Envíos">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
       <Label fx:id="lbNombre" layoutX="30.0" layoutY="68.0" text="PEDRO PABLO PEREZ PEREIRA">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
