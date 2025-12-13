@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import packetworldfx.pojo.Colaborador;
 
 /**
  * FXML Controller class
@@ -33,6 +34,10 @@ public class FXMLMenuPrincipalController implements Initializable {
     private Label lbNombre;
     @FXML
     private Label lbRol;
+    @FXML
+    private Label lbNoPersonal;
+
+    private Colaborador colaboradorSesion;
 
     /**
      * Initializes the controller class.
@@ -114,6 +119,21 @@ public class FXMLMenuPrincipalController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void cargarInformacion(Colaborador colaborador) {
+        colaboradorSesion = colaborador;
+        String nombreCompleto = colaborador.getNombre();
+        // Validacion si vienen apellidos nulos y concatenacion
+        if (colaborador.getApellidoPaterno() != null && !colaborador.getApellidoPaterno().isEmpty()) {
+            nombreCompleto += " " + colaborador.getApellidoPaterno();
+        }
+        if (colaborador.getApellidoMaterno() != null && !colaborador.getApellidoMaterno().isEmpty()) {
+            nombreCompleto += " " + colaborador.getApellidoMaterno();
+        }
+        lbNombre.setText(nombreCompleto);
+        lbRol.setText(colaborador.getNombreRol());
+        lbNoPersonal.setText(colaborador.getNoPersonal());
     }
 
 }

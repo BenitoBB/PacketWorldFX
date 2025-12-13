@@ -19,6 +19,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import packetworldfx.dominio.InicioSesionImp;
+import packetworldfx.dto.RSColaborador;
+import packetworldfx.pojo.Colaborador;
+import packetworldfx.utilidad.Utilidades;
 
 /**
  * FXML Controller class
@@ -46,32 +50,33 @@ public class FXMLInicioSesionController implements Initializable {
         String password = pfPassword.getText();
 
         if (!noPersonal.isEmpty() && !password.isEmpty()) {
-            irMenuPrincipal();
+            verificarCredenciales(noPersonal, password);
         } else {
-            Alert alerta = new Alert(Alert.AlertType.WARNING);
-            alerta.setTitle("Campos vacios");
-            alerta.setHeaderText("Falta informacion");
-            alerta.setContentText("Debes ingresar tu Número Personal y Contraseña para iniciar sesion");
-            alerta.showAndWait();
+            Utilidades.mostrarAlertaSimple("Campos requeridos.", "NoPersonal y/o Contraseña obligatorios", Alert.AlertType.WARNING);
         }
     }
 
-    private void irMenuPrincipal() {
+    // Verificar Credenciales Validas
+    private void verificarCredenciales(String noPersonal, String password) {
+        RSColaborador respuesta = InicioSesionImp.verificarCredenciales(noPersonal, password);
+        if (!respuesta.isError()) {
+            Utilidades.mostrarAlertaSimple("Credenciales verificadas", "Bienvenido de vuelta, " + respuesta.getColaborador().getNombre(), Alert.AlertType.INFORMATION);
+            irMenuPrincipal(respuesta.getColaborador());
+        } else {
+            Utilidades.mostrarAlertaSimple("Error", respuesta.getMensaje(), Alert.AlertType.ERROR);
+        }
+    }
+
+    private void irMenuPrincipal(Colaborador colaborador) {
         try {
-            // 1. Crear la ESCENA
-            Parent vista = FXMLLoader.load(getClass().getResource("FXMLMenuPrincipal.fxml"));
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLMenuPrincipal.fxml"));
+            Parent vista = cargador.load();
+            FXMLMenuPrincipalController controlador = cargador.getController();
+            controlador.cargarInformacion(colaborador);
             Scene escenaPrincipal = new Scene(vista);
-
-            // 2. Obtener ESCENARIO actual (donde me encuentro)
             Stage stPrincipal = (Stage) tfNoPersonal.getScene().getWindow();
-
-            // 3. Cambio de ESCENA
             stPrincipal.setScene(escenaPrincipal);
-
-            // 4. Agregar Titulo
             stPrincipal.setTitle("Menú principal");
-
-            // 5. Mostrar ESCENSARIO
             stPrincipal.show();
         } catch (IOException ex) {
             ex.printStackTrace();
