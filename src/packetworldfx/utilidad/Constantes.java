@@ -8,6 +8,11 @@ public class Constantes {
 
     // URL API
     public static final String URL_WS = "http://localhost:8080/APIPacketWorld/api/";
+    // URL INEGI
+    public static final String URL_INEGI = "https://gaia.inegi.org.mx/wscatgeo/mgee/";
+    // URL INEGI Código Postal
+    public static final String URL_INEGI_CP = "https://gaia.inegi.org.mx/wscatgeo/cp/";
+    
 
     // Peticiones 
     public static final String PETICION_GET = "GET";

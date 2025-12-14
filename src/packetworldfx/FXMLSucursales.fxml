@@ -6,14 +6,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLSucursalesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLSucursalesController">
    <children>
-      <TableView fx:id="tvSucursales" layoutX="31.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tvSucursales" layoutX="26.0" layoutY="100.0" prefHeight="200.0" prefWidth="656.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colCalle" prefWidth="75.0" text="Calle" />
+            <TableColumn fx:id="colNumero" prefWidth="75.0" text="#" />
+            <TableColumn fx:id="colColonia" prefWidth="75.0" text="Colonia" />
+            <TableColumn fx:id="colCodigoPostal" prefWidth="110.8399658203125" text="Código Postal" />
+            <TableColumn fx:id="colCiudad" prefWidth="89.9599609375" text="Ciudad" />
+            <TableColumn fx:id="colEstado" prefWidth="78.99993896484375" text="Estado" />
         </columns>
       </TableView>
+      <Button layoutX="272.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button layoutX="381.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button layoutX="468.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
    </children>
 </AnchorPane>

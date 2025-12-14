@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="377.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLFormularioSucursalController">
+   <children>
+      <Label layoutX="23.0" layoutY="63.0" text="Código" />
+      <TextField fx:id="tfCodigo" layoutX="23.0" layoutY="93.0" />
+      <TextField fx:id="tfNombre" layoutX="185.0" layoutY="93.0" />
+      <Label layoutX="185.0" layoutY="63.0" text="Nombre" />
+      <Label layoutX="23.0" layoutY="144.0" text="Calle" />
+      <TextField fx:id="tfCalle" layoutX="23.0" layoutY="174.0" />
+      <Label layoutX="185.0" layoutY="144.0" text="Número de Calle" />
+      <TextField fx:id="tfNumero" layoutX="185.0" layoutY="174.0" />
+      <Label layoutX="357.0" layoutY="144.0" text="Colonia" />
+      <Label layoutX="23.0" layoutY="225.0" text="Código Postal" />
+      <TextField fx:id="tfCodigoPostal" layoutX="23.0" layoutY="255.0" />
+      <Label layoutX="185.0" layoutY="228.0" text="Ciudad" />
+      <Label layoutX="357.0" layoutY="228.0" text="Estado" />
+      <Button layoutX="444.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
+      <Button layoutX="369.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
+      <ComboBox fx:id="cbCiudad" layoutX="185.0" layoutY="255.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbEstado" layoutX="357.0" layoutY="255.0" prefWidth="150.0" />
+      <Label layoutX="59.0" layoutY="26.0" text="Ingresa el código postal para cargar automáticamente el estado y la ciudad." />
+      <ComboBox fx:id="cbColonia" layoutX="357.0" layoutY="174.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
