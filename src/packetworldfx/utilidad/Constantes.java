@@ -47,6 +47,12 @@ public class Constantes {
     public static final String MSJ_ERROR_ACTUALIZAR_COLABORADOR = "Error al actualizar el colaborador";
     public static final String MSJ_ERROR_ELIMINAR_COLABORADOR = "No fue posible eliminar el colaborador. Intenta más tarde.";
 
+    // Mensajes específicos Unidad
+    public static final String[] TIPOS_UNIDAD = {"Gasolina", "Diesel", "Eléctrica", "Híbrida"};
+    public static final String MSJ_ERROR_REGISTRO_UNIDAD = "Lo sentimos, hubo un problema al registrar la unidad. Intente más tarde.";
+    public static final String MSJ_ERROR_ACTUALIZAR_UNIDAD = "Error al actualizar la unidad.";
+    public static final String MSJ_ERROR_ELIMINAR_UNIDAD = "No fue posible eliminar la unidad. Intenta más tarde.";
+
     // Roles del sistema (IDs de negocio)
     public static final Integer ID_ROL_CONDUCTOR = 3;
 }

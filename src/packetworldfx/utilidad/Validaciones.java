@@ -1,5 +1,7 @@
 package packetworldfx.utilidad;
 
+import java.net.URLEncoder;
+import java.text.Normalizer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -136,4 +138,62 @@ public class Validaciones {
         String texto = campo.getText();
         return (texto == null || texto.trim().isEmpty()) ? null : texto.trim();
     }
+
+    // Validar año lógico
+    public static boolean validarAnio(TextField campo) {
+        String texto = campo.getText().trim();
+        if (texto.isEmpty()) {
+            return false;
+        }
+
+        try {
+            int anio = Integer.parseInt(texto);
+            int anioActual = java.time.Year.now().getValue();
+            if (anio < 1990 || anio > anioActual + 1) {
+                Utilidades.mostrarAlertaSimple(
+                        "Año inválido",
+                        "El año debe estar entre 1990 y " + (anioActual + 1),
+                        Alert.AlertType.WARNING
+                );
+                campo.requestFocus();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Utilidades.mostrarAlertaSimple(
+                    "Año inválido",
+                    "El año debe ser un número válido",
+                    Alert.AlertType.WARNING
+            );
+            campo.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    // Número de Identificación Interna 
+    public static String generarNII(int anio, String vin) {
+        if (vin == null) {
+            vin = "";
+        }
+        return anio + (vin.length() >= 4 ? vin.substring(0, 4) : vin);
+    }
+
+    // Normalizar tipo de unidad 
+    public static String normalizarTipoUnidad(String tipo) {
+        if (tipo == null) {
+            return null;
+        }
+
+        return Normalizer.normalize(tipo, Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+    }
+
+    public static String codificarURL(String texto) {
+        try {
+            return URLEncoder.encode(texto, "UTF-8");
+        } catch (Exception e) {
+            return texto.replace(" ", "%20");
+        }
+    }
+
 }

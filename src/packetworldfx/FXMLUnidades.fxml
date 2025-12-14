@@ -6,15 +6,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLUnidadesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLUnidadesController">
    <children>
-      <TableView fx:id="tvUnidades" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="572.0">
+      <TableView fx:id="tvUnidades" layoutX="14.0" layoutY="77.0" prefHeight="200.0" prefWidth="664.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="colMarca" prefWidth="75.0" text="Marca" />
+          <TableColumn fx:id="colModelo" prefWidth="75.0" text="Modelo" />
+            <TableColumn fx:id="colAnio" prefWidth="75.0" text="Año" />
+            <TableColumn fx:id="colVIN" prefWidth="144.98580932617188" text="VIN" />
+            <TableColumn fx:id="colTipoUnidad" prefWidth="111.75726318359375" text="Tipo de Unidad" />
+            <TableColumn fx:id="colNoIdentificacion" prefWidth="180.99996948242188" text="No. de Identificación Interno" />
         </columns>
       </TableView>
+      <Button layoutX="245.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button layoutX="315.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button layoutX="403.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
+      <TextField fx:id="tfBuscar" layoutX="39.0" layoutY="33.0" prefHeight="25.0" prefWidth="177.0" promptText="Buscar por VIN, Marca o NII" />
    </children>
 </AnchorPane>

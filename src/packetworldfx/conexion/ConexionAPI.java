@@ -74,11 +74,22 @@ public class ConexionAPI {
             URL urlWS = new URL(URL);
             HttpURLConnection conexionHTTP = (HttpURLConnection) urlWS.openConnection();
             conexionHTTP.setRequestMethod(metodoHTTP);
-            int codigo = conexionHTTP.getResponseCode(); // codigo de respuesta - 200/404/...
-            if (codigo == HttpURLConnection.HTTP_OK) {
-                respuesta.setContenido(Utilidades.streamToString(conexionHTTP.getInputStream()));
-            }
+
+            int codigo = conexionHTTP.getResponseCode();
             respuesta.setCodigo(codigo);
+
+            // 204 es éxito, NO intentar leer stream
+            if (codigo == HttpURLConnection.HTTP_NO_CONTENT) {
+                respuesta.setContenido("");
+                return respuesta;
+            }
+
+            if (codigo == HttpURLConnection.HTTP_OK) {
+                respuesta.setContenido(
+                        Utilidades.streamToString(conexionHTTP.getInputStream())
+                );
+            }
+
         } catch (MalformedURLException e) {
             respuesta.setCodigo(Constantes.ERROR_MALFORMED_URL);
             respuesta.setContenido(e.getMessage());
@@ -86,6 +97,8 @@ public class ConexionAPI {
             respuesta.setCodigo(Constantes.ERROR_PETICION);
             respuesta.setContenido(ex.getMessage());
         }
+
         return respuesta;
     }
+
 }

@@ -153,7 +153,6 @@ public class ColaboradorImp {
     }
 
     // Eliminar
-    // Eliminar colaborador
     public static Respuesta eliminar(int idColaborador) {
         Respuesta respuesta = new Respuesta();
 
@@ -195,79 +194,6 @@ public class ColaboradorImp {
 
     private static boolean esRolConductor(Integer idRol) {
         return idRol != null && Constantes.ID_ROL_CONDUCTOR.equals(idRol);
-    }
-
-    // Actualizar sin Password
-    public static Respuesta actualizarSinPassword(Colaborador colaborador) {
-        Respuesta respuesta = new Respuesta();
-
-        // Regla de negocio
-        if (esRolConductor(colaborador.getIdRol())
-                && (colaborador.getNumeroLicencia() == null
-                || colaborador.getNumeroLicencia().trim().isEmpty())) {
-
-            respuesta.setError(true);
-            respuesta.setMensaje(Constantes.MSJ_ERROR_LICENCIA_REQUERIDA);
-            return respuesta;
-        }
-
-        // Evitar enviar password
-        colaborador.setPassword(null);
-
-        String URL = Constantes.URL_WS + "colaborador/actualizar-sin-password";
-        Gson gson = new Gson();
-        String parametrosJSON = gson.toJson(colaborador);
-
-        RespuestaHTTP respuestaAPI = ConexionAPI.peticionBody(
-                URL,
-                Constantes.PETICION_PUT,
-                parametrosJSON,
-                Constantes.APPLICATION_JSON
-        );
-
-        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
-            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
-        } else {
-            respuesta.setError(true);
-            respuesta.setMensaje(Constantes.MSJ_ERROR_ACTUALIZAR_COLABORADOR);
-        }
-
-        return respuesta;
-    }
-
-    // Actualizar con Password
-    public static Respuesta actualizarConPassword(Colaborador colaborador) {
-        Respuesta respuesta = new Respuesta();
-
-        // Regla de negocio
-        if (esRolConductor(colaborador.getIdRol())
-                && (colaborador.getNumeroLicencia() == null
-                || colaborador.getNumeroLicencia().trim().isEmpty())) {
-
-            respuesta.setError(true);
-            respuesta.setMensaje(Constantes.MSJ_ERROR_LICENCIA_REQUERIDA);
-            return respuesta;
-        }
-
-        String URL = Constantes.URL_WS + "colaborador/actualizar-con-password";
-        Gson gson = new Gson();
-        String parametrosJSON = gson.toJson(colaborador);
-
-        RespuestaHTTP respuestaAPI = ConexionAPI.peticionBody(
-                URL,
-                Constantes.PETICION_PUT,
-                parametrosJSON,
-                Constantes.APPLICATION_JSON
-        );
-
-        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
-            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
-        } else {
-            respuesta.setError(true);
-            respuesta.setMensaje(Constantes.MSJ_ERROR_ACTUALIZAR_COLABORADOR);
-        }
-
-        return respuesta;
     }
 
 }
