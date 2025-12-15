@@ -6,14 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLClientesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLClientesController">
    <children>
-      <TableView fx:id="tvClientes" layoutX="14.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tvClientes" layoutX="19.0" layoutY="102.0" prefHeight="200.0" prefWidth="747.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="colAPaterno" prefWidth="75.0" text="A. Paterno" />
+            <TableColumn fx:id="colAMaterno" prefWidth="75.0" text="A. Materno" />
+            <TableColumn fx:id="colCalle" prefWidth="75.0" text="Calle" />
+            <TableColumn fx:id="colNumero" prefWidth="75.0" text="#" />
+            <TableColumn fx:id="colColonia" prefWidth="75.0" text="Colonia" />
+            <TableColumn fx:id="colCodigoPostal" prefWidth="111.55963134765625" text="Código Postal" />
+            <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="colCorreo" prefWidth="109.0" text="Correo" />
         </columns>
       </TableView>
+      <TextField fx:id="tfBuscar" layoutX="69.0" layoutY="52.0" prefHeight="25.0" prefWidth="227.0" promptText="Buscar por Nombre, Número o Correo" />
+      <Button layoutX="331.0" layoutY="52.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button layoutX="436.0" layoutY="52.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button layoutX="518.0" layoutY="52.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
    </children>
 </AnchorPane>

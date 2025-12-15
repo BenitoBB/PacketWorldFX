@@ -57,6 +57,11 @@ public class Constantes {
     public static final String MSJ_ERROR_REGISTRO_UNIDAD = "Lo sentimos, hubo un problema al registrar la unidad. Intente más tarde.";
     public static final String MSJ_ERROR_ACTUALIZAR_UNIDAD = "Error al actualizar la unidad.";
     public static final String MSJ_ERROR_ELIMINAR_UNIDAD = "No fue posible eliminar la unidad. Intenta más tarde.";
+    
+    // Mensajes específicos Unidad
+    public static final String MSJ_ERROR_REGISTRO_CLIENTE = "Lo sentimos, hubo un problema al registrar el cliente. Intente más tarde.";
+    public static final String MSJ_ERROR_ACTUALIZAR_CLIENTE = "Error al actualizar el cliente.";
+    public static final String MSJ_ERROR_ELIMINAR_CLIENTE = "No fue posible eliminar el cliente. Intenta más tarde.";
 
     // Roles del sistema (IDs de negocio)
     public static final Integer ID_ROL_CONDUCTOR = 3;

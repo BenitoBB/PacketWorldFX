@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="304.0" prefWidth="515.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLFormularioClienteController">
+   <children>
+      <Label layoutX="14.0" layoutY="22.0" text="Nombre" />
+      <TextField fx:id="tfNombre" layoutX="14.0" layoutY="46.0" />
+      <TextField fx:id="tfAPaterno" layoutX="175.0" layoutY="46.0" />
+      <Label layoutX="175.0" layoutY="22.0" text="Apellido Paterno" />
+      <TextField fx:id="tfAMaterno" layoutX="342.0" layoutY="46.0" />
+      <Label layoutX="342.0" layoutY="22.0" text="Apellido Materno" />
+      <TextField fx:id="tfCalle" layoutX="14.0" layoutY="108.0" />
+      <Label layoutX="14.0" layoutY="84.0" text="Calle" />
+      <TextField fx:id="tfNumeroCalle" layoutX="175.0" layoutY="108.0" />
+      <Label layoutX="175.0" layoutY="84.0" text="Número de Calle" />
+      <Label layoutX="342.0" layoutY="84.0" text="Colonia" />
+      <TextField fx:id="tfCodigoPostal" layoutX="14.0" layoutY="164.0" />
+      <Label layoutX="14.0" layoutY="140.0" text="Código Postal" />
+      <TextField fx:id="tfTelefono" layoutX="175.0" layoutY="164.0" />
+      <Label layoutX="175.0" layoutY="140.0" text="Teléfono" />
+      <TextField fx:id="tfCorreo" layoutX="342.0" layoutY="164.0" />
+      <Label layoutX="342.0" layoutY="140.0" text="Correo" />
+      <ComboBox fx:id="cbColonia" layoutX="342.0" layoutY="108.0" prefWidth="150.0" />
+      <Button layoutX="429.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
+      <Button layoutX="363.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
+   </children>
+</AnchorPane>
