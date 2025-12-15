@@ -71,10 +71,58 @@ public class Validaciones {
         }));
     }
 
-    // Formatear letras y números
-    public static void letrasYNumeros(TextField campo) {
+    // Solo números decimales
+    public static void soloNumerosDecimales(TextField campo) {
         campo.setTextFormatter(new TextFormatter<>(change -> {
-            if (change.getText().matches("[a-zA-Z0-9]*")) {
+            if (change.getText().matches("[0-9.]*")) {
+                return change;
+            }
+            return null;
+        }));
+    }
+
+    // Números positivos
+    public static boolean validarNumeroPositivo(TextField campo, String nombreCampo) {
+        try {
+            double valor = Double.parseDouble(campo.getText().trim());
+            if (valor <= 0) {
+                Utilidades.mostrarAlertaSimple(
+                        "Valor inválido",
+                        nombreCampo + " debe ser mayor a cero",
+                        Alert.AlertType.WARNING
+                );
+                campo.requestFocus();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Utilidades.mostrarAlertaSimple(
+                    "Valor inválido",
+                    nombreCampo + " debe ser un número válido",
+                    Alert.AlertType.WARNING
+            );
+            campo.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    // Dimensiones positivas
+    public static boolean validarDimensiones(
+            TextField peso,
+            TextField alto,
+            TextField ancho,
+            TextField profundidad) {
+
+        return validarNumeroPositivo(peso, "Peso")
+                && validarNumeroPositivo(alto, "Alto")
+                && validarNumeroPositivo(ancho, "Ancho")
+                && validarNumeroPositivo(profundidad, "Profundidad");
+    }
+
+    // Formatear letras y números
+    public static void letrasYNumeros(TextField tf) {
+        tf.setTextFormatter(new TextFormatter<>(change -> {
+            if (change.getControlNewText().matches("[a-zA-Z0-9 ]*")) {
                 return change;
             }
             return null;

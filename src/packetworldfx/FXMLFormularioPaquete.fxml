@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="251.0" prefWidth="521.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLFormularioPaqueteController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Descripción " />
+      <TextField fx:id="tfDescripcion" layoutX="14.0" layoutY="40.0" />
+      <TextField fx:id="tfPeso" layoutX="175.0" layoutY="41.0" />
+      <Label layoutX="175.0" layoutY="15.0" text="Peso" />
+      <TextField fx:id="tfAlto" layoutX="14.0" layoutY="105.0" />
+      <Label layoutX="14.0" layoutY="79.0" text="Alto" />
+      <TextField fx:id="tfAncho" layoutX="175.0" layoutY="106.0" />
+      <Label layoutX="175.0" layoutY="80.0" text="Ancho " />
+      <TextField fx:id="tfProfundidad" layoutX="341.0" layoutY="106.0" />
+      <Label layoutX="341.0" layoutY="80.0" text="Profundidad" />
+      <Button layoutX="429.0" layoutY="174.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
+      <Button layoutX="348.0" layoutY="174.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
+   </children>
+</AnchorPane>
