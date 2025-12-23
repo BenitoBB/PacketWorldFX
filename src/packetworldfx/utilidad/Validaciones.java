@@ -2,6 +2,9 @@ package packetworldfx.utilidad;
 
 import java.net.URLEncoder;
 import java.text.Normalizer;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Random;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -242,6 +245,91 @@ public class Validaciones {
         } catch (Exception e) {
             return texto.replace(" ", "%20");
         }
+    }
+
+    // Método auxiliar para Número Guía
+    private static String abreviar(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return "XXX";
+        }
+
+        texto = Normalizer.normalize(texto, Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
+                .toUpperCase();
+
+        return texto.length() >= 3 ? texto.substring(0, 3) : texto;
+    }
+
+    // Fórmula para generar Número Guía
+    public static String generarNumeroGuia(
+            String remitente,
+            String destinatario,
+            String origen,
+            String destino) {
+
+        String rem = abreviar(remitente);
+        String des = abreviar(destinatario);
+        String ori = abreviar(origen);
+        String dest = abreviar(destino);
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        String fecha = LocalDateTime.now().format(formato);
+
+        int random = new Random().nextInt(900) + 100; // 3 dígitos
+
+        return "PW-" + ori + "-" + dest + "-" + fecha + "-" + random;
+    }
+
+    public static boolean validarNumeroGuia(String guia) {
+        if (guia == null || guia.isEmpty()) {
+            Utilidades.mostrarAlertaSimple(
+                    "Número de guía inválido",
+                    "El número de guía no puede estar vacío",
+                    Alert.AlertType.WARNING
+            );
+            return false;
+        }
+
+        String regex = "^PW-[A-Z]{3}-[A-Z]{3}-\\d{8}-\\d{6}-\\d{3}$";
+        if (!guia.matches(regex)) {
+            Utilidades.mostrarAlertaSimple(
+                    "Número de guía inválido",
+                    "El formato del número de guía no es válido",
+                    Alert.AlertType.WARNING
+            );
+            return false;
+        }
+
+        return true;
+    }
+    
+    // Fórmula para calcular el Costo Envío 
+    public static double calcularCostoEnvio(
+            double pesoKg,
+            double alto,
+            double ancho,
+            double profundidad,
+            int cantidadPaquetes,
+            boolean zonaRural) {
+
+        double tarifaBase = 50.0;
+        double tarifaPeso = 12.5;       // por kg
+        double tarifaVolumen = 0.02;    // cm³
+        double recargoRural = 40.0;
+
+        double volumen = alto * ancho * profundidad;
+
+        double costo = tarifaBase
+                + (pesoKg * tarifaPeso)
+                + (volumen * tarifaVolumen);
+
+        costo = costo * cantidadPaquetes;
+
+        if (zonaRural) {
+            costo += recargoRural;
+        }
+
+        return Math.round(costo * 100.0) / 100.0;
     }
 
 }
