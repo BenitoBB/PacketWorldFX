@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLFormularioEnvioController">
+   <children>
+      <Label layoutX="23.0" layoutY="26.0" text="Cliente Remitente" />
+      <Button layoutX="45.0" layoutY="176.0" mnemonicParsing="false" onAction="#clickBuscarCliente" text="Buscar Cliente" />
+      <Label layoutX="33.0" layoutY="73.0" text="Nombre: " />
+      <Label layoutX="39.0" layoutY="108.0" text="Correo:" />
+      <Label layoutX="34.0" layoutY="134.0" text="Telefono:" />
+      <Label fx:id="lbNombreRemitente" layoutX="91.0" layoutY="73.0" text="Juan Perez Pereira" />
+      <Label fx:id="lbCorreoRemitente" layoutX="92.0" layoutY="108.0" text="juan@uv.mx" />
+      <Label fx:id="lbTelefonoRemitente" layoutX="91.0" layoutY="134.0" text="123456789" />
+      <Label layoutX="366.0" layoutY="26.0" text="Destinatario" />
+      <Label layoutX="407.0" layoutY="73.0" prefHeight="17.0" prefWidth="47.0" text="Nombre:" />
+      <Label layoutX="362.0" layoutY="108.0" text="Apellido Paterno:" />
+      <Label layoutX="362.0" layoutY="143.0" text="Apellido Materno: " />
+      <TextField fx:id="tfNombreDestinatario" layoutX="471.0" layoutY="68.0" />
+      <TextField fx:id="tfAPaternoDestinatario" layoutX="471.0" layoutY="104.0" />
+      <TextField fx:id="tfAMaternoDestinatario" layoutX="471.0" layoutY="138.0" />
+      <Label layoutX="64.0" layoutY="281.0" text="Dirección Origen" />
+      <Label layoutX="40.0" layoutY="310.0" text="Sucursal:" />
+      <Label layoutX="367.0" layoutY="289.0" text="Dirección Destino" />
+      <ComboBox fx:id="cbSucursalOrigen" layoutX="92.0" layoutY="313.0" prefWidth="150.0" />
+      <Label layoutX="348.0" layoutY="319.0" text="Calle:" />
+      <TextField fx:id="tfCalle" layoutX="387.0" layoutY="313.0" />
+      <TextField fx:id="tfNumeroDeCalle" layoutX="387.0" layoutY="354.0" />
+      <ComboBox fx:id="cbColonia" layoutX="387.0" layoutY="395.0" prefWidth="150.0" />
+      <TextField fx:id="tfCodigoPostal" layoutX="389.0" layoutY="507.0" />
+      <ComboBox fx:id="cbCiudad" layoutX="388.0" layoutY="434.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbEstado" layoutX="389.0" layoutY="471.0" prefWidth="150.0" />
+      <Label layoutX="285.0" layoutY="358.0" text="Número de Calle:" />
+      <Label layoutX="339.0" layoutY="399.0" text="Colonia:" />
+      <Label layoutX="339.0" layoutY="438.0" text="Ciudad:" />
+      <Label layoutX="339.0" layoutY="475.0" text="Estado:" />
+      <Label layoutX="310.0" layoutY="511.0" text="Código Postal:" />
+      <Label layoutX="637.0" layoutY="281.0" text="Datos del Envío" />
+      <Button layoutX="749.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
+      <Button layoutX="653.0" layoutY="520.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
+      <Label layoutX="575.0" layoutY="317.0" text="Número de Guía:" />
+      <Label fx:id="lbNumeroGuia" layoutX="675.0" layoutY="316.0" text="PW-ORI-DES-YYYYMMDD-HHMMSS-RND" />
+      <Label layoutX="623.0" layoutY="346.0" text="Costo:" />
+      <Label fx:id="lbCostoEnvio" layoutX="679.0" layoutY="346.0" text="0.0" />
+   </children>
+</AnchorPane>

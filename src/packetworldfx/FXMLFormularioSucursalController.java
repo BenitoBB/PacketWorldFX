@@ -62,7 +62,6 @@ public class FXMLFormularioSucursalController implements Initializable {
                 buscarDireccionPorCP();
             }
         });
-
     }
 
     private void limpiarCombos() {
