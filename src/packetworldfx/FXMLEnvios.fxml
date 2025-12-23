@@ -6,15 +6,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLEnviosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLEnviosController">
    <children>
-      <TableView fx:id="tvEnvios" layoutX="7.0" layoutY="6.0" prefHeight="200.0" prefWidth="228.0">
+      <TableView fx:id="tvEnvios" layoutX="7.0" layoutY="45.0" prefHeight="200.0" prefWidth="581.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="colCliente" prefWidth="150.0" text="Cliente" />
+          <TableColumn fx:id="colOrigen" minWidth="0.0" text="Origen" />
+            <TableColumn fx:id="colDestino" prefWidth="83.0" text="Destino" />
+            <TableColumn fx:id="colEstado" prefWidth="131.0" text="Estado" />
+            <TableColumn fx:id="colConductorAsignado" prefWidth="136.0" text="Conductor Asignado" />
         </columns>
       </TableView>
+      <TextField fx:id="tfBuscar" layoutX="14.0" layoutY="14.0" />
+      <Button layoutX="183.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button layoutX="263.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
    </children>
 </AnchorPane>

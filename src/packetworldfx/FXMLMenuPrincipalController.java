@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package packetworldfx;
 
 import java.io.IOException;
@@ -22,7 +17,7 @@ import packetworldfx.pojo.Colaborador;
 /**
  * FXML Controller class
  *
- * @author benit
+ * @authors Ohana & Benito
  */
 public class FXMLMenuPrincipalController implements Initializable {
 
@@ -31,12 +26,7 @@ public class FXMLMenuPrincipalController implements Initializable {
     @FXML
     private Label lbHeader;
     @FXML
-    private Label lbNombre;
-    @FXML
-    private Label lbRol;
-    @FXML
-    private Label lbNoPersonal;
-
+    private Label lbDatosUsuario;
     private Colaborador colaboradorSesion;
 
     /**
@@ -122,18 +112,37 @@ public class FXMLMenuPrincipalController implements Initializable {
     }
 
     public void cargarInformacion(Colaborador colaborador) {
-        colaboradorSesion = colaborador;
-        String nombreCompleto = colaborador.getNombre();
-        // Validacion si vienen apellidos nulos y concatenacion
+        this.colaboradorSesion = colaborador;
+
+        // 1. Nombre completo
+        StringBuilder nombreCompleto = new StringBuilder();
+        nombreCompleto.append(colaborador.getNombre());
+
         if (colaborador.getApellidoPaterno() != null && !colaborador.getApellidoPaterno().isEmpty()) {
-            nombreCompleto += " " + colaborador.getApellidoPaterno();
+            nombreCompleto.append(" ").append(colaborador.getApellidoPaterno());
         }
+
         if (colaborador.getApellidoMaterno() != null && !colaborador.getApellidoMaterno().isEmpty()) {
-            nombreCompleto += " " + colaborador.getApellidoMaterno();
+            nombreCompleto.append(" ").append(colaborador.getApellidoMaterno());
         }
-        lbNombre.setText(nombreCompleto);
-        lbRol.setText(colaborador.getNombreRol());
-        lbNoPersonal.setText(colaborador.getNoPersonal());
+
+        // 2. Rol
+        String rol = colaborador.getNombreRol() != null
+                ? colaborador.getNombreRol()
+                : "Sin rol";
+
+        // 3. Número de personal
+        String noPersonal = colaborador.getNoPersonal() != null
+                ? colaborador.getNoPersonal()
+                : "N/D";
+
+        // 4. Construir texto final
+        String datosUsuario = nombreCompleto
+                + " | " + rol
+                + " | No. Personal: " + noPersonal;
+
+        // 5. Mostrar en el label
+        lbDatosUsuario.setText(datosUsuario);
     }
 
 }
