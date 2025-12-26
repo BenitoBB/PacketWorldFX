@@ -71,7 +71,7 @@ public class FXMLInicioSesionController implements Initializable {
             Scene escenaPrincipal = new Scene(vista);
             Stage stPrincipal = (Stage) tfNoPersonal.getScene().getWindow();
             stPrincipal.setScene(escenaPrincipal);
-            stPrincipal.setTitle("Menú principal");
+            stPrincipal.setTitle("Packet-World");
             stPrincipal.show();
         } catch (IOException ex) {
             ex.printStackTrace();

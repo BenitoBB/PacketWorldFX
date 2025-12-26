@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLEnviosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLEnviosController">
    <children>
-      <TableView fx:id="tvEnvios" layoutX="7.0" layoutY="45.0" prefHeight="200.0" prefWidth="581.0">
+      <TableView fx:id="tvEnvios" layoutX="11.0" layoutY="55.0" prefHeight="200.0" prefWidth="581.0">
         <columns>
           <TableColumn fx:id="colCliente" prefWidth="150.0" text="Cliente" />
           <TableColumn fx:id="colOrigen" minWidth="0.0" text="Origen" />
@@ -17,8 +17,8 @@
             <TableColumn fx:id="colConductorAsignado" prefWidth="136.0" text="Conductor Asignado" />
         </columns>
       </TableView>
-      <TextField fx:id="tfBuscar" layoutX="14.0" layoutY="14.0" />
-      <Button layoutX="183.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
-      <Button layoutX="263.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <TextField fx:id="tfBuscar" layoutX="113.0" layoutY="11.0" />
+      <Button id="btnRegistrar" layoutX="284.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button id="btnEditar" layoutX="376.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
    </children>
 </AnchorPane>

@@ -1,0 +1,198 @@
+
+/* 
+    Created on : 22/12/2025, 06:52:08 PM
+    Authors    : Ohana & Benito
+*/
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #004B8D; 
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #004B8D;
+    -fx-background-radius: 5px 5px 0px 0px;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white; 
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f5f5f5; 
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9; 
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #1EA09E;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-padding: 8 15 8 15;
+}
+#btnRegistrar {
+    -fx-background-color: #FF7A00;
+}
+#btnRegistrar:hover {
+    -fx-background-color: #e66e00;
+}
+
+#btnEditar {
+    -fx-background-color: #1EA09E;
+}
+#btnEditar:hover {
+    -fx-background-color: #188583;
+}
+
+#btnEliminar {
+    -fx-background-color: #4A4A4A;
+}
+#btnEliminar:hover {
+    -fx-background-color: #333333;
+}
+
+#btnCerrarSesion {
+    -fx-background-color: #D32F2F; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-padding: 8 15 8 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+#btnCerrarSesion:hover {
+    -fx-background-color: #B71C1C; 
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+#btnCerrarSesion:armed {
+    -fx-background-color: #8B0000;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #DCDCDC;
+    -fx-border-radius: 20px; 
+    -fx-background-radius: 20px;
+    -fx-padding: 8 12 8 12;
+}
+
+.text-field:focused {
+    -fx-border-color: #1EA09E; 
+    -fx-border-width: 2px;
+}
+
+.sidebar-vbox {
+    -fx-background-color: transparent;
+    -fx-spacing: 10; 
+    -fx-padding: 20 10 20 10; 
+    -fx-alignment: TOP_CENTER; 
+}
+#menu-button {
+    -fx-background-color: transparent; 
+    -fx-text-fill: #4A4A4A; 
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-max-width: Infinity; 
+    -fx-padding: 10 15 10 15;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+#menu-button:hover {
+    -fx-background-color: #f0f7f7;
+    -fx-text-fill: #1EA09E; 
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #DCDCDC;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 2 5 2 5;
+    -fx-cursor: hand;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1EA09E; 
+    -fx-border-width: 2px;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #004B8D; 
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #DCDCDC;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.combo-box-popup .list-cell {
+    -fx-padding: 8 15 8 15;
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A4A4A;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #f0f7f7; 
+    -fx-text-fill: #1EA09E;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #004B8D;
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: #004B8D; 
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 2; 
+}
+#label-titulo {
+    -fx-font-size: 15px;
+    -fx-text-fill: #004B8D; 
+    -fx-font-weight: bold;
+}
+#label-texto {
+    -fx-font-size: 13px;
+    -fx-text-fill: black; 
+    -fx-font-weight: normal;
+}
+#label-texto-alt{
+    -fx-text-fill: white; 
+}
+
+
+#card-form {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4);
+}
+

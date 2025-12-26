@@ -11,41 +11,41 @@
 
 <AnchorPane prefHeight="499.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLMenuPrincipalController">
    <children>
-      <Pane layoutY="54.0" prefHeight="443.0" prefWidth="123.0" style="-fx-background-color: #F0F0F0;">
+      <Pane layoutY="54.0" prefHeight="443.0" prefWidth="132.0" style="-fx-background-color: #F0F0F0;">
          <children>
-            <Button layoutX="14.0" layoutY="403.0" mnemonicParsing="false" onAction="#clickCerrarSesion" style="-fx-background-color: #ff7a00;" text="Cerrar sesión" textFill="WHITE">
+            <Button id="btnCerrarSesion" layoutX="9.0" layoutY="403.0" mnemonicParsing="false" onAction="#clickCerrarSesion" stylesheets="@Style.css" text="Cerrar sesión" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
             </Button>
-            <VBox alignment="CENTER_LEFT" layoutY="29.0" prefHeight="200.0" prefWidth="125.0">
+            <VBox id="sidebar-vbox" alignment="CENTER_LEFT" layoutY="29.0" prefHeight="205.0" prefWidth="132.0" stylesheets="@Style.css">
                <children>
-                  <Button mnemonicParsing="false" onAction="#clickIrColaboradores" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Colaboradores">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrColaboradores" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="Colaboradores">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickIrClientes" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Clientes">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrClientes" prefHeight="33.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Clientes">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickIrSucursales" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Sucursales">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrSucursales" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Sucursales">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickIrUnidades" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Unidades">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrUnidades" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Unidades">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickIrPaquetes" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Paquetes">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrPaquetes" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: transparent;" text="Paquetes">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#clickIrEnvios" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: transparent;" text="Envíos">
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrEnvios" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: transparent;" text="Envíos">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
                      </font>
@@ -54,8 +54,8 @@
             </VBox>
          </children>
       </Pane>
-      <AnchorPane id="apCentral" fx:id="apCentral" layoutX="125.0" layoutY="68.0" prefHeight="410.0" prefWidth="762.0" />
-      <Pane prefHeight="59.0" prefWidth="899.0" style="-fx-background-color: #004B8D;">
+      <AnchorPane id="apCentral" fx:id="apCentral" layoutX="132.0" layoutY="55.0" prefHeight="441.0" prefWidth="775.0" style="-fx-background-color: #FFFFFF;" />
+      <Pane prefHeight="59.0" prefWidth="899.0" style="-fx-background-color: #1D4E79;">
          <children>
             <Label fx:id="lbHeader" layoutX="128.0" layoutY="18.0" text="Packet-World" textFill="WHITE">
                <font>
@@ -64,12 +64,12 @@
             </Label>
             <Label fx:id="lbDatosUsuario" layoutX="584.0" layoutY="23.0" text="Ana Gómez López | Administrador | No. Personal: 001" textFill="WHITE">
                <font>
-                  <Font name="SansSerif Regular" size="11.0" />
+                  <Font name="SansSerif Regular" size="12.0" />
                </font>
             </Label>
-            <ImageView fitHeight="61.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="59.0" fitWidth="57.0" layoutX="37.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/packetworld-icon.png" />
+                  <Image url="@img/packetworld%20fondo%20azul.png" />
                </image></ImageView>
          </children>
       </Pane>
