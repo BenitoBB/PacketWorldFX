@@ -132,6 +132,25 @@ public class FXMLUnidadesController implements Initializable, INotificador {
         }
     }
 
+    private void irAsignacionConductoUnidad() {
+        try {
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLAsignacionConductorUnidad.fxml"));
+            Parent vista = cargador.load();
+            FXMLAsignacionConductorUnidadController controlador = cargador.getController();
+
+            Scene escena = new Scene(vista);
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.setTitle("Asignación Conductor - Unidad");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            Utilidades.mostrarAlertaSimple("Error", "No se pudo abrir el formulario", Alert.AlertType.ERROR);
+        }
+    }
+
     @Override
     public void notificarOperacionExitosa(String operacion, String nombre) {
         System.out.println("Operacion " + operacion + " , nombre Unidad: " + nombre);
@@ -223,6 +242,11 @@ public class FXMLUnidadesController implements Initializable, INotificador {
                     Alert.AlertType.ERROR
             );
         }
+    }
+
+    @FXML
+    private void clickAsignar(ActionEvent event) {
+        irAsignacionConductoUnidad();
     }
 
 }
