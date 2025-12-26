@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLSucursalesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="706.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLSucursalesController">
    <children>
-      <TableView fx:id="tvSucursales" layoutX="26.0" layoutY="100.0" prefHeight="200.0" prefWidth="656.0">
+      <TableView fx:id="tvSucursales" layoutX="11.0" layoutY="57.0" prefHeight="200.0" prefWidth="656.0">
         <columns>
           <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
           <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
@@ -20,8 +20,8 @@
             <TableColumn fx:id="colEstado" prefWidth="78.99993896484375" text="Estado" />
         </columns>
       </TableView>
-      <Button layoutX="272.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
-      <Button layoutX="381.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
-      <Button layoutX="468.0" layoutY="45.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
+      <Button id="btnRegistrar" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button id="btnEditar" layoutX="310.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button id="btnEliminar" layoutX="385.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
    </children>
 </AnchorPane>

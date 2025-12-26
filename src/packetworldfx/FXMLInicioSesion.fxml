@@ -12,32 +12,32 @@
    <children>
       <AnchorPane layoutX="288.0" layoutY="-1.0" prefHeight="406.0" prefWidth="318.0" style="-fx-background-color: #004b8d;">
          <children>
-            <Button layoutX="127.0" layoutY="314.0" mnemonicParsing="false" onAction="#clickIniciarSesion" style="-fx-background-color: #ff7a00;" text="Iniciar sesión" textFill="WHITE">
+            <Button id="btnRegistrar" layoutX="127.0" layoutY="314.0" mnemonicParsing="false" onAction="#clickIniciarSesion" style="-fx-background-color: #ff7a00;" stylesheets="@Style.css" text="Iniciar sesión" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="68.0" layoutY="111.0" text="Para ingresar, escriba sus credenciales" textFill="WHITE">
+            <Label layoutX="40.0" layoutY="111.0" text="Para ingresar, escriba sus credenciales" textFill="WHITE">
                <font>
-                  <Font name="SansSerif Regular" size="12.0" />
+                  <Font name="SansSerif Regular" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="176.0" text="Número personal:" textFill="WHITE">
+            <Label layoutX="83.0" layoutY="172.0" text="Número personal:" textFill="WHITE">
                <font>
-                  <Font name="SansSerif Regular" size="12.0" />
+                  <Font name="SansSerif Regular" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="247.0" text="Contraseña:" textFill="WHITE">
+            <Label layoutX="83.0" layoutY="243.0" text="Contraseña:" textFill="WHITE">
                <font>
-                  <Font name="SansSerif Regular" size="12.0" />
+                  <Font name="SansSerif Regular" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="tfNoPersonal" layoutX="69.0" layoutY="192.0" prefHeight="23.0" prefWidth="207.0" promptText="NO123">
+            <TextField fx:id="tfNoPersonal" layoutX="69.0" layoutY="192.0" prefHeight="23.0" prefWidth="207.0" promptText="NO123" stylesheets="@Style.css">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </TextField>
-            <PasswordField id="pfPassword" fx:id="pfPassword" layoutX="70.0" layoutY="262.0" prefHeight="23.0" prefWidth="207.0" promptText="*****">
+            <PasswordField id="pfPassword" fx:id="pfPassword" layoutX="70.0" layoutY="262.0" prefHeight="23.0" prefWidth="207.0" promptText="*****" stylesheets="@Style.css">
                <font>
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
@@ -49,7 +49,7 @@
             <Font name="SansSerif Regular" size="32.0" />
          </font>
       </Label>
-      <ImageView fitHeight="259.0" fitWidth="252.0" layoutX="14.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="286.0" fitWidth="291.0" layoutX="1.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/packetworld-icon.png" />
          </image>

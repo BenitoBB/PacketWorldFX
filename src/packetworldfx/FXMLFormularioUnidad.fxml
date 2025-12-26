@@ -6,21 +6,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="325.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLFormularioUnidadController">
+<AnchorPane id="AnchorPane" prefHeight="304.0" prefWidth="571.0" style="-fx-background-color: #DBE0E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLFormularioUnidadController">
    <children>
-      <Label layoutX="31.0" layoutY="32.0" text="Marca" />
-      <Label layoutX="199.0" layoutY="32.0" text="Modelo" />
+      <Label layoutX="33.0" layoutY="35.0" text="Marca" />
+      <Label layoutX="204.0" layoutY="35.0" text="Modelo" />
       <TextField fx:id="tfMarca" layoutX="31.0" layoutY="59.0" />
-      <TextField fx:id="tfModelo" layoutX="199.0" layoutY="59.0" />
-      <Label layoutX="360.0" layoutY="32.0" text="Año" />
-      <TextField fx:id="tfAnio" layoutX="360.0" layoutY="59.0" />
-      <Label layoutX="31.0" layoutY="123.0" text="VIN" />
-      <Label layoutX="199.0" layoutY="123.0" text="Tipo de Unidad" />
-      <Label layoutX="360.0" layoutY="123.0" text="No. de Identificación Interno" />
+      <TextField fx:id="tfModelo" layoutX="202.0" layoutY="59.0" />
+      <Label layoutX="374.0" layoutY="35.0" text="Año" />
+      <TextField fx:id="tfAnio" layoutX="372.0" layoutY="59.0" />
+      <Label layoutX="33.0" layoutY="126.0" text="VIN" />
+      <Label layoutX="203.0" layoutY="126.0" text="Tipo de Unidad" />
+      <Label layoutX="374.0" layoutY="126.0" text="No. de Identificación Interno" />
       <TextField fx:id="tfVIN" layoutX="31.0" layoutY="148.0" />
-      <TextField fx:id="tfNoIdentificacion" layoutX="360.0" layoutY="148.0" />
-      <Button layoutX="450.0" layoutY="264.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
-      <Button layoutX="382.0" layoutY="264.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
-      <ComboBox fx:id="cbTipoUnidad" layoutX="199.0" layoutY="148.0" prefWidth="150.0" />
+      <TextField fx:id="tfNoIdentificacion" layoutX="372.0" layoutY="148.0" />
+      <Button id="btnCerrarSesion" layoutX="481.0" layoutY="259.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
+      <Button id="btnRegistrar" layoutX="395.0" layoutY="259.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
+      <ComboBox fx:id="cbTipoUnidad" layoutX="202.0" layoutY="148.0" prefHeight="31.0" prefWidth="161.0" />
    </children>
 </AnchorPane>

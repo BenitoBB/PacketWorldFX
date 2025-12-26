@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLUnidadesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="687.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLUnidadesController">
    <children>
-      <TableView fx:id="tvUnidades" layoutX="14.0" layoutY="77.0" prefHeight="200.0" prefWidth="664.0">
+      <TableView fx:id="tvUnidades" layoutX="12.0" layoutY="56.0" prefHeight="200.0" prefWidth="664.0">
         <columns>
           <TableColumn fx:id="colMarca" prefWidth="75.0" text="Marca" />
           <TableColumn fx:id="colModelo" prefWidth="75.0" text="Modelo" />
@@ -18,9 +18,9 @@
             <TableColumn fx:id="colNoIdentificacion" prefWidth="180.99996948242188" text="No. de Identificación Interno" />
         </columns>
       </TableView>
-      <Button layoutX="245.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
-      <Button layoutX="315.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
-      <Button layoutX="403.0" layoutY="33.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
-      <TextField fx:id="tfBuscar" layoutX="39.0" layoutY="33.0" prefHeight="25.0" prefWidth="177.0" promptText="Buscar por VIN, Marca o NII" />
+      <Button id="btnRegistrar" layoutX="291.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button id="btnEditar" layoutX="383.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button id="btnEliminar" layoutX="458.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
+      <TextField fx:id="tfBuscar" layoutX="103.0" layoutY="13.0" prefHeight="25.0" prefWidth="177.0" promptText="Buscar por VIN, Marca o NII" />
    </children>
 </AnchorPane>
