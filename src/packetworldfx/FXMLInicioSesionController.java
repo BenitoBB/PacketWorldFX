@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import packetworldfx.dominio.InicioSesionImp;
 import packetworldfx.dto.RSColaborador;
 import packetworldfx.pojo.Colaborador;
+import packetworldfx.utilidad.Sesion;
 import packetworldfx.utilidad.Utilidades;
 
 /**
@@ -55,6 +56,7 @@ public class FXMLInicioSesionController implements Initializable {
     private void verificarCredenciales(String noPersonal, String password) {
         RSColaborador respuesta = InicioSesionImp.verificarCredenciales(noPersonal, password);
         if (!respuesta.isError()) {
+            Sesion.iniciarSesion(respuesta.getColaborador());
             Utilidades.mostrarAlertaSimple("Credenciales verificadas", "Bienvenido de vuelta, " + respuesta.getColaborador().getNombre(), Alert.AlertType.INFORMATION);
             irMenuPrincipal(respuesta.getColaborador());
         } else {

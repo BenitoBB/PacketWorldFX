@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import packetworldfx.pojo.Colaborador;
+import packetworldfx.utilidad.Sesion;
 
 /**
  * FXML Controller class
@@ -91,6 +92,9 @@ public class FXMLMenuPrincipalController implements Initializable {
     // Método para cerrar sesión
     private void cerrarSesion() {
         try {
+            // Cerrar sesión nivel global
+            Sesion.cerrarSesion();
+            
             // 1. Crear la ESCENA
             Parent vista = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml"));
             Scene escenaPrincipal = new Scene(vista);

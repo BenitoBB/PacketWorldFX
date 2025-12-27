@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import packetworldfx.conexion.ConexionAPI;
+import packetworldfx.pojo.Estatus;
 import packetworldfx.pojo.RespuestaHTTP;
 import packetworldfx.pojo.Rol;
 import packetworldfx.pojo.Sucursal;
@@ -85,6 +86,22 @@ public class CatalogoImp {
             }
         }
         return respuesta;
+    }
+
+    // Obtener Estatus de Envío
+    public static List<Estatus> obtenerEstatusEnvio() {
+
+        String URL = Constantes.URL_WS + "catalogo/estatus";
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Estatus>>() {
+            }.getType();
+            return gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+        }
+
+        return null;
     }
 
 }

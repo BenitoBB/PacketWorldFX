@@ -10,15 +10,16 @@
    <children>
       <TableView fx:id="tvEnvios" layoutX="11.0" layoutY="55.0" prefHeight="200.0" prefWidth="581.0">
         <columns>
-          <TableColumn fx:id="colCliente" prefWidth="150.0" text="Cliente" />
-          <TableColumn fx:id="colOrigen" minWidth="0.0" text="Origen" />
+            <TableColumn fx:id="colGuia" prefWidth="75.0" text="Guía" />
             <TableColumn fx:id="colDestino" prefWidth="83.0" text="Destino" />
+          <TableColumn fx:id="colOrigen" minWidth="0.0" text="Origen" />
             <TableColumn fx:id="colEstado" prefWidth="131.0" text="Estado" />
             <TableColumn fx:id="colConductorAsignado" prefWidth="136.0" text="Conductor Asignado" />
         </columns>
       </TableView>
-      <TextField fx:id="tfBuscar" layoutX="113.0" layoutY="11.0" />
+      <TextField fx:id="tfBuscar" layoutX="113.0" layoutY="11.0" promptText="Buscar por Número Guía" />
       <Button id="btnRegistrar" layoutX="284.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
       <Button id="btnEditar" layoutX="376.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button id="btnAsignar" layoutX="450.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEstatus" text="Estatus" />
    </children>
 </AnchorPane>

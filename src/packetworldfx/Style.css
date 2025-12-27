@@ -193,6 +193,9 @@
 #label-texto-alt{
     -fx-text-fill: white; 
 }
+#lbael-text-nrj{
+    -fx-text-fill: #EE7533;
+}
 
 
 #card-form {
@@ -203,3 +206,20 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 4);
 }
 
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cfd8dc;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6;
+    -fx-font-size: 13px;
+}
+.text-area:focused {
+    -fx-border-color: #1976d2;
+}
+.text-area .content {
+    -fx-background-color: #ffffff;
+}
+.text-area.obligatorio {
+    -fx-border-color: #d32f2f;
+}
