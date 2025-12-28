@@ -224,4 +224,29 @@ public class FXMLEnviosController implements Initializable {
         irFormularioStatus(seleccionado);
     }
 
+    private void irAsignacionEnvioConductor() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("FXMLAsignacionEnvioConductor.fxml")
+            );
+            Parent vista = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(vista));
+            stage.setTitle("Asignar conductor a envío");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+            cargarEnvios(); // refrescar tabla
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void clicAsignar(ActionEvent event) {
+        irAsignacionEnvioConductor();
+    }
+
 }

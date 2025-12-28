@@ -77,6 +77,13 @@
     -fx-background-color: #006ACC;
 }
 
+#btnEstatus{
+    -fx-background-color: #1EA05D;
+}
+#btnEstatus:hover{
+    -fx-background-color: #18804A;
+}
+
 #btnCerrarSesion {
     -fx-background-color: #D32F2F; 
     -fx-text-fill: white;

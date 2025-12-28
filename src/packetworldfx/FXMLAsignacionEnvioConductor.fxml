@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1025.0" style="-fx-background-color: #DBE0E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLAsignacionEnvioConductorController">
+   <children>
+      <TableView fx:id="tvEnvio" layoutX="14.0" layoutY="81.0" prefHeight="200.0" prefWidth="461.0">
+        <columns>
+          <TableColumn fx:id="colNumeroGuia" prefWidth="75.0" text="Guía" />
+            <TableColumn fx:id="colOrigen" prefWidth="75.0" text="Origen" />
+          <TableColumn fx:id="colDestino" prefWidth="75.0" text="Destino" />
+            <TableColumn fx:id="colEstado" prefWidth="108.99995422363281" text="Estado" />
+            <TableColumn fx:id="colConductorActual" prefWidth="120.27618408203125" text="Conductor Actual" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tvConductor" layoutX="620.0" layoutY="91.0" prefHeight="200.0" prefWidth="359.0">
+        <columns>
+          <TableColumn fx:id="colNoPersonal" prefWidth="82.48599243164062" text="NoPersonal" />
+          <TableColumn fx:id="colNombreCompleto" prefWidth="151.67755126953125" text="Nombre" />
+            <TableColumn fx:id="colNumeroLicencia" prefWidth="114.32244873046875" text="Número Licencia" />
+        </columns>
+      </TableView>
+      <Button id="btnAsignar" layoutX="532.0" layoutY="131.0" mnemonicParsing="false" onAction="#clickAsignar" text="Asignar" />
+      <Button id="btnCerrarSesion" layoutX="524.0" layoutY="205.0" mnemonicParsing="false" onAction="#clickDesasignar" text="Desasignar" />
+      <Label fx:id="lbIndicacion" layoutX="153.0" layoutY="28.0" text="Selecciona un envío y un conductor para asignar." />
+   </children>
+</AnchorPane>
