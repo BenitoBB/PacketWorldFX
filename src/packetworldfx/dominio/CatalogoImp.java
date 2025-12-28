@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import packetworldfx.conexion.ConexionAPI;
+import packetworldfx.pojo.Colaborador;
 import packetworldfx.pojo.Estatus;
 import packetworldfx.pojo.RespuestaHTTP;
 import packetworldfx.pojo.Rol;
@@ -102,6 +103,45 @@ public class CatalogoImp {
         }
 
         return null;
+    }
+    
+    // Obtener Conductores
+    public static HashMap<String, Object> obtenerConductores() {
+        HashMap<String, Object> respuesta = new LinkedHashMap<>();
+        String URL = Constantes.URL_WS + "catalogo/conductores";
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Colaborador>>() {
+            }.getType();
+
+            List<Colaborador> conductores
+                    = gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+
+            respuesta.put(Constantes.KEY_ERROR, false);
+            respuesta.put(Constantes.KEY_LISTA, conductores);
+        } else {
+            respuesta.put(Constantes.KEY_ERROR, true);
+
+            switch (respuestaAPI.getCodigo()) {
+                case Constantes.ERROR_MALFORMED_URL:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_URL);
+                    break;
+
+                case Constantes.ERROR_PETICION:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_PETICION);
+                    break;
+
+                default:
+                    respuesta.put(Constantes.KEY_MENSAJE,
+                            "Error al obtener la lista de conductores");
+                    break;
+            }
+        }
+
+        return respuesta;
     }
 
 }

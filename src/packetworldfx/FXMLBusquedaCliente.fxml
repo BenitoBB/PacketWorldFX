@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="797.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLBusquedaClienteController">
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="797.0" style="-fx-background-color: #DBE0E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLBusquedaClienteController">
    <children>
       <TableView fx:id="tvClientes" layoutX="24.0" layoutY="61.0" prefHeight="200.0" prefWidth="747.0">
          <columns>
@@ -21,7 +21,7 @@
             <TableColumn fx:id="colCorreo" prefWidth="109.0" text="Correo" />
          </columns>
       </TableView>
-      <TextField fx:id="tfBuscar" layoutX="283.0" layoutY="22.0" prefHeight="35.0" prefWidth="243.0" promptText="Buscar por Nombre, Número o Correo" />
+      <TextField fx:id="tfBuscar" layoutX="283.0" layoutY="17.0" prefHeight="35.0" prefWidth="243.0" promptText="Buscar por Nombre, Número o Correo" />
       <Button id="btnCerrarSesion" layoutX="693.0" layoutY="269.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
       <Button id="btnRegistrar" layoutX="585.0" layoutY="269.0" mnemonicParsing="false" onAction="#clickSeleccionar" text="Seleccionar" />
    </children>

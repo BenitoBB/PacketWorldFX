@@ -189,4 +189,70 @@ public class EnvioImp {
         return respuesta;
     }
 
+    public static Respuesta asignar(String guia, int idColaborador) {
+
+        Respuesta respuesta = new Respuesta();
+
+        try {
+            String url = Constantes.URL_WS
+                    + "envio/asignar/" + guia + "/" + idColaborador;
+
+            RespuestaHTTP respuestaAPI = ConexionAPI.peticionSinBody(
+                    url,
+                    Constantes.PETICION_PUT
+            );
+
+            if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+                Gson gson = new Gson();
+                respuesta = gson.fromJson(
+                        respuestaAPI.getContenido(),
+                        Respuesta.class
+                );
+            } else {
+                respuesta.setError(true);
+                respuesta.setMensaje("No se pudo asignar el conductor.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            respuesta.setError(true);
+            respuesta.setMensaje("Error inesperado al asignar conductor.");
+        }
+
+        return respuesta;
+    }
+
+    public static Respuesta desasignar(String guia) {
+
+        Respuesta respuesta = new Respuesta();
+
+        try {
+            String url = Constantes.URL_WS
+                    + "envio/desasignar/" + guia;
+
+            RespuestaHTTP respuestaAPI = ConexionAPI.peticionSinBody(
+                    url,
+                    Constantes.PETICION_PUT
+            );
+
+            if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+                Gson gson = new Gson();
+                respuesta = gson.fromJson(
+                        respuestaAPI.getContenido(),
+                        Respuesta.class
+                );
+            } else {
+                respuesta.setError(true);
+                respuesta.setMensaje("No se pudo desasignar el conductor.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            respuesta.setError(true);
+            respuesta.setMensaje("Error inesperado al desasignar conductor.");
+        }
+
+        return respuesta;
+    }
+
 }
