@@ -1,6 +1,10 @@
 package packetworldfx;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,7 +18,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import packetworldfx.dominio.CatalogoImp;
 import packetworldfx.dominio.ColaboradorImp;
@@ -65,6 +71,7 @@ public class FXMLFormularioColaboradorController implements Initializable {
 
     private Colaborador colaboradorEdicion;
     private INotificador observador;
+    private byte[] fotoSeleccionada;
 
     /**
      * Initializes the controller class.
@@ -204,6 +211,18 @@ public class FXMLFormularioColaboradorController implements Initializable {
             pfPassword.clear();
             pfPassword.setPromptText("Deja vacío si no deseas cambiar la contraseña");
         }
+
+        // Cambio de foto
+        if (colaboradorEdicion.getIdColaborador() != null) {
+            byte[] foto = ColaboradorImp.obtenerFoto(
+                    colaboradorEdicion.getIdColaborador()
+            );
+
+            if (foto != null && foto.length > 0) {
+                Image img = new Image(new ByteArrayInputStream(foto));
+                ivFoto.setImage(img);
+            }
+        }
     }
 
     private void cargarRoles() {
@@ -247,21 +266,27 @@ public class FXMLFormularioColaboradorController implements Initializable {
             return true;
         }
 
-        return !tfNombre.getText().trim().equals(colaboradorEdicion.getNombre())
+        boolean cambioFoto = fotoSeleccionada != null;
+
+        return cambioFoto
+                || !tfNombre.getText().trim().equals(colaboradorEdicion.getNombre())
                 || !tfAPaterno.getText().trim().equals(colaboradorEdicion.getApellidoPaterno())
-                || !String.valueOf(Validaciones.textoONull(tfAMaterno)).equals(String.valueOf(colaboradorEdicion.getApellidoMaterno()))
+                || !String.valueOf(Validaciones.textoONull(tfAMaterno))
+                        .equals(String.valueOf(colaboradorEdicion.getApellidoMaterno()))
                 || !tfCurp.getText().trim().equals(colaboradorEdicion.getCurp())
                 || !tfTelefono.getText().trim().equals(colaboradorEdicion.getTelefono())
                 || !tfCorreo.getText().trim().equals(colaboradorEdicion.getCorreo())
-                || !cbSucursal.getValue().getIdSucursal().equals(colaboradorEdicion.getIdSucursal())
+                || !cbSucursal.getValue().getIdSucursal()
+                        .equals(colaboradorEdicion.getIdSucursal())
                 || (esRolConductor(cbRol.getValue().getIdRol())
-                && !tfLicencia.getText().trim().equals(colaboradorEdicion.getNumeroLicencia()))
+                && !tfLicencia.getText().trim()
+                        .equals(colaboradorEdicion.getNumeroLicencia()))
                 || !pfPassword.getText().trim().isEmpty();
     }
 
     @FXML
     private void clickGuardar(ActionEvent event) {
-        // Si es edición y no hubo cambios → cerrar
+        // Si es edición y no hubo cambios -> cerrar
         if (colaboradorEdicion != null && !huboCambios()) {
             cerrarVentana();
             return;
@@ -334,6 +359,34 @@ public class FXMLFormularioColaboradorController implements Initializable {
 
         // 4. Respuesta
         if (!respuesta.isError()) {
+            // Subir foto si existe
+            if (fotoSeleccionada != null) {
+
+                int idColaborador;
+
+                if (colaboradorEdicion != null) {
+                    // edición
+                    idColaborador = colaboradorEdicion.getIdColaborador();
+                } else {
+                    // registro -> volver a consultar por NoPersonal
+                    Colaborador c = ColaboradorImp.buscarPorNoPersonal(
+                            colaborador.getNoPersonal()
+                    );
+                    idColaborador = c.getIdColaborador();
+                }
+
+                Respuesta rFoto = ColaboradorImp.guardarFotoEscritorioFX(idColaborador, fotoSeleccionada);
+
+                if (rFoto.isError()) {
+                    Utilidades.mostrarAlertaSimple(
+                            "Error",
+                            rFoto.getMensaje(),
+                            Alert.AlertType.ERROR
+                    );
+                    return; // NO cerrar
+                }
+            }
+
             observador.notificarOperacionExitosa(
                     "Colaborador",
                     colaborador.getNombre()
@@ -345,6 +398,36 @@ public class FXMLFormularioColaboradorController implements Initializable {
                     respuesta.getMensaje(),
                     Alert.AlertType.ERROR
             );
+        }
+    }
+
+    @FXML
+    private void clickActualizarFoto(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar foto");
+
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        File archivo = fileChooser.showOpenDialog(ivFoto.getScene().getWindow());
+
+        if (archivo != null) {
+            try {
+                fotoSeleccionada = Files.readAllBytes(archivo.toPath());
+
+                Image imagen = new Image(new ByteArrayInputStream(fotoSeleccionada));
+                ivFoto.setImage(imagen);
+                System.out.println("Foto seleccionada bytes: "
+                        + (fotoSeleccionada != null ? fotoSeleccionada.length : "null"));
+
+            } catch (IOException e) {
+                Utilidades.mostrarAlertaSimple(
+                        "Error",
+                        "No se pudo cargar la imagen",
+                        Alert.AlertType.ERROR
+                );
+            }
         }
     }
 }

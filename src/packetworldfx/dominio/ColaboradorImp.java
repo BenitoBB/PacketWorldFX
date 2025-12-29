@@ -12,6 +12,7 @@ import packetworldfx.dto.ColaboradorTablaDTO;
 import packetworldfx.dto.Respuesta;
 import packetworldfx.pojo.Colaborador;
 import packetworldfx.pojo.RespuestaHTTP;
+import packetworldfx.pojo.RespuestaHTTPBIN;
 import packetworldfx.utilidad.Constantes;
 
 /**
@@ -194,6 +195,68 @@ public class ColaboradorImp {
 
     private static boolean esRolConductor(Integer idRol) {
         return idRol != null && Constantes.ID_ROL_CONDUCTOR.equals(idRol);
+    }
+
+    public static Respuesta guardarFoto(int idColaborador, byte[] foto) {
+        Respuesta respuesta = new Respuesta();
+
+        try {
+            String url = Constantes.URL_WS + "colaborador/escritorio/subir-foto/" + idColaborador;
+
+            RespuestaHTTP respuestaAPI = ConexionAPI.peticionBinaria(
+                    url,
+                    Constantes.PETICION_PUT,
+                    foto
+            );
+
+            if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+
+                if (respuestaAPI.getContenido() != null
+                        && !respuestaAPI.getContenido().trim().isEmpty()) {
+
+                    Gson gson = new Gson();
+                    respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+
+                } else {
+                    respuesta.setError(false);
+                    respuesta.setMensaje("Foto guardada correctamente");
+                }
+
+            } else {
+                respuesta.setError(true);
+                respuesta.setMensaje("No se pudo guardar la foto");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            respuesta.setError(true);
+            respuesta.setMensaje("Error inesperado al subir la foto");
+        }
+
+        return respuesta;
+    }
+
+    public static byte[] obtenerFoto(int idColaborador) {
+
+        try {
+            String url = Constantes.URL_WS
+                    + "colaborador/escritorio/obtener-foto/" + idColaborador;
+
+            RespuestaHTTPBIN respuestaAPI = ConexionAPI.peticionGETBinaria(url);
+
+            if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+                return respuestaAPI.getContenidoBinario(); // byte[]
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static Respuesta guardarFotoEscritorioFX(int id, byte[] foto) {
+        return guardarFoto(id, foto);
     }
 
 }
