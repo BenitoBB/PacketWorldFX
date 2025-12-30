@@ -129,4 +129,52 @@ public class PaqueteImp {
         return respuesta;
     }
 
+    // Asignar paquete a envío
+    public static Respuesta asignar(Integer idPaquete, Integer idEnvio) {
+        Respuesta respuesta = new Respuesta();
+
+        String URL = Constantes.URL_WS
+                + "paquete/asignar/"
+                + idPaquete + "/"
+                + idEnvio;
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionSinBody(
+                URL,
+                Constantes.PETICION_PUT
+        );
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+        } else {
+            respuesta.setError(true);
+            respuesta.setMensaje("Error al asignar el paquete al envío");
+        }
+
+        return respuesta;
+    }
+
+    // Desasignar paquete de envío
+    public static Respuesta desasignar(Integer idPaquete) {
+        Respuesta respuesta = new Respuesta();
+
+        String URL = Constantes.URL_WS
+                + "paquete/desasignar/"
+                + idPaquete;
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionSinBody(
+                URL,
+                Constantes.PETICION_PUT
+        );
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+        } else {
+            respuesta.setError(true);
+            respuesta.setMensaje("Error al desasignar el paquete");
+        }
+
+        return respuesta;
+    }
 }

@@ -13,6 +13,7 @@ public class RSEnvioTabla {
 
     private String sucursalOrigen;
     private String destino;
+    private int idEstatus;
     private String estatus;
     private String conductor;
     private BigDecimal costo;
@@ -20,11 +21,12 @@ public class RSEnvioTabla {
     public RSEnvioTabla() {
     }
 
-    public RSEnvioTabla(int idEnvio, String numeroGuia, String sucursalOrigen, String destino, String estatus, String conductor, BigDecimal costo) {
+    public RSEnvioTabla(int idEnvio, String numeroGuia, String sucursalOrigen, String destino, int idEstatus, String estatus, String conductor, BigDecimal costo) {
         this.idEnvio = idEnvio;
         this.numeroGuia = numeroGuia;
         this.sucursalOrigen = sucursalOrigen;
         this.destino = destino;
+        this.idEstatus = idEstatus;
         this.estatus = estatus;
         this.conductor = conductor;
         this.costo = costo;
@@ -44,6 +46,10 @@ public class RSEnvioTabla {
 
     public String getDestino() {
         return destino;
+    }
+
+    public int getIdEstatus() {
+        return idEstatus;
     }
 
     public String getEstatus() {
@@ -72,6 +78,10 @@ public class RSEnvioTabla {
 
     public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public void setIdEstatus(int idEstatus) {
+        this.idEstatus = idEstatus;
     }
 
     public void setEstatus(String estatus) {
