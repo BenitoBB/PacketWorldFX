@@ -190,4 +190,29 @@ public class FXMLPaquetesController implements Initializable, INotificador {
         }
     }
 
+    private void irAsignacionPaqueteEnvio() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("FXMLAsignacionPaqueteEnvio.fxml")
+            );
+            Parent vista = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(vista));
+            stage.setTitle("Asignar paquete a envío");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+            cargarPaquetesIniciales();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void clickAsignar(ActionEvent event) {
+        irAsignacionPaqueteEnvio();
+    }
+
 }
