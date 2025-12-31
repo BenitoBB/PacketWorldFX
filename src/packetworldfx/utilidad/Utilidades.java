@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -15,7 +16,7 @@ import javafx.scene.control.ButtonType;
 public class Utilidades {
 
     public static String streamToString(InputStream input) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(input));
+        BufferedReader in = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
         String inputLine;
         StringBuffer respuestaEntrada = new StringBuffer();
         while ((inputLine = in.readLine()) != null) {

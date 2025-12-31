@@ -29,7 +29,7 @@ import packetworldfx.utilidad.Utilidades;
 /**
  * FXML Controller class
  *
- * @authors Ohana & Benit0
+ * @authors Ohana & Benito
  */
 public class FXMLClientesController implements Initializable, INotificador {
 
@@ -106,24 +106,35 @@ public class FXMLClientesController implements Initializable, INotificador {
         colCorreo.setCellValueFactory(new PropertyValueFactory<>("correo"));
 
         // Datos de la Dirección
-        colCalle.setCellValueFactory(
-                cellData -> new SimpleStringProperty(
-                        cellData.getValue().getDireccion().getCalle()
+        colCalle.setCellValueFactory(cellData
+                -> new SimpleStringProperty(
+                        cellData.getValue().getDireccion() != null
+                        ? cellData.getValue().getDireccion().getCalle()
+                        : ""
                 )
         );
-        colNumero.setCellValueFactory(
-                cellData -> new SimpleStringProperty(
-                        cellData.getValue().getDireccion().getNumero()
+
+        colNumero.setCellValueFactory(cellData
+                -> new SimpleStringProperty(
+                        cellData.getValue().getDireccion() != null
+                        ? cellData.getValue().getDireccion().getNumero()
+                        : ""
                 )
         );
-        colColonia.setCellValueFactory(
-                cellData -> new SimpleStringProperty(
-                        cellData.getValue().getDireccion().getColonia()
+
+        colColonia.setCellValueFactory(cellData
+                -> new SimpleStringProperty(
+                        cellData.getValue().getDireccion() != null
+                        ? cellData.getValue().getDireccion().getColonia()
+                        : ""
                 )
         );
-        colCodigoPostal.setCellValueFactory(
-                cellData -> new SimpleStringProperty(
-                        cellData.getValue().getDireccion().getCodigoPostal()
+
+        colCodigoPostal.setCellValueFactory(cellData
+                -> new SimpleStringProperty(
+                        cellData.getValue().getDireccion() != null
+                        ? cellData.getValue().getDireccion().getCodigoPostal()
+                        : ""
                 )
         );
     }
@@ -135,6 +146,9 @@ public class FXMLClientesController implements Initializable, INotificador {
             clientes = FXCollections.observableArrayList();
             clientes.addAll(clientesAPI);
             tvClientes.setItems(clientes);
+
+            // Forzar refrehs
+            tvClientes.refresh();
         } else {
             Utilidades.mostrarAlertaSimple(
                     "Error",
@@ -212,9 +226,9 @@ public class FXMLClientesController implements Initializable, INotificador {
             cargarInformacionClientes();
         } else {
             Utilidades.mostrarAlertaSimple(
-                    "Error al eliminar",
+                    "No se puede eliminar el cliente",
                     respuesta.getMensaje(),
-                    Alert.AlertType.ERROR
+                    Alert.AlertType.WARNING
             );
         }
     }

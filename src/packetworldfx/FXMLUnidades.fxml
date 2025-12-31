@@ -14,14 +14,14 @@
           <TableColumn fx:id="colModelo" prefWidth="75.0" text="Modelo" />
             <TableColumn fx:id="colAnio" prefWidth="75.0" text="Año" />
             <TableColumn fx:id="colVIN" prefWidth="144.98580932617188" text="VIN" />
-            <TableColumn fx:id="colTipoUnidad" prefWidth="111.75726318359375" text="Tipo de Unidad" />
-            <TableColumn fx:id="colNoIdentificacion" prefWidth="204.0" text="No. de Identificación Interno" />
+            <TableColumn fx:id="colTipoUnidad" prefWidth="141.4644775390625" text="Tipo de Unidad" />
+            <TableColumn fx:id="colNoIdentificacion" prefWidth="169.0" text="NII" />
         </columns>
       </TableView>
-      <Button id="btnRegistrar" layoutX="291.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
-      <Button id="btnEditar" layoutX="383.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
-      <Button id="btnEliminar" layoutX="458.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
-      <TextField fx:id="tfBuscar" layoutX="103.0" layoutY="13.0" prefHeight="25.0" prefWidth="177.0" promptText="Buscar por VIN, Marca o NII" />
-      <Button id="btnAsignar" layoutX="545.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickAsignar" text="Asignación" />
+      <Button id="btnRegistrar" layoutX="281.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
+      <Button id="btnEditar" layoutX="373.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEditar" text="Editar" />
+      <Button id="btnEliminar" layoutX="448.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickEliminar" text="Eliminar" />
+      <TextField fx:id="tfBuscar" layoutX="93.0" layoutY="13.0" prefHeight="25.0" prefWidth="177.0" promptText="Buscar por VIN, Marca o NII" />
+      <Button id="btnAsignar" layoutX="535.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickAsignar" text="Asignación" />
    </children>
 </AnchorPane>

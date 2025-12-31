@@ -13,13 +13,13 @@
         <columns>
           <TableColumn fx:id="colNoPersonal" prefWidth="79.07193183898926" text="NoPersonal" />
           <TableColumn fx:id="colNombre" prefWidth="68.92803955078125" text="Nombre" />
-            <TableColumn fx:id="colAPaterno" prefWidth="75.0" text="A. Paterno" />
-            <TableColumn fx:id="colAMaterno" prefWidth="75.0" text="A. Materno" />
-            <TableColumn fx:id="colRol" prefWidth="85.33831787109375" text="Rol" />
-            <TableColumn fx:id="colSucursal" prefWidth="75.0" text="Sucursal" />
-            <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Teléfono" />
-            <TableColumn fx:id="colCorreo" minWidth="0.0" prefWidth="109.36679077148438" text="Correo" />
-            <TableColumn fx:id="colLicencia" prefWidth="77.0" text="Licencia" />
+            <TableColumn fx:id="colAPaterno" prefWidth="91.0" text="Apellido Pat." />
+            <TableColumn fx:id="colAMaterno" prefWidth="93.0" text="Apellido Mat." />
+            <TableColumn fx:id="colRol" prefWidth="70.0" text="Rol" />
+            <TableColumn fx:id="colSucursal" prefWidth="77.0" text="Sucursal" />
+            <TableColumn fx:id="colTelefono" prefWidth="90.0" text="Teléfono" />
+            <TableColumn fx:id="colCorreo" minWidth="0.0" prefWidth="95.0" text="Correo" />
+            <TableColumn fx:id="colLicencia" prefWidth="73.48333740234375" text="Licencia" />
         </columns>
       </TableView>
       <Button id="btnRegistrar" layoutX="350.0" layoutY="12.0" mnemonicParsing="false" onAction="#clickRegistrar" prefHeight="25.0" prefWidth="86.0" stylesheets="@Style.css" text="Registrar" />
