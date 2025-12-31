@@ -14,7 +14,7 @@
           <TableColumn fx:id="colPeso" prefWidth="59.0" text="Peso" />
             <TableColumn fx:id="colAlto" prefWidth="52.0" text="Alto" />
             <TableColumn fx:id="colAncho" prefWidth="67.0" text="Ancho" />
-            <TableColumn fx:id="colProfundidad" prefWidth="101.0" text="Profundidad" />
+            <TableColumn fx:id="colProfundidad" prefWidth="97.0" text="Profundidad" />
         </columns>
       </TableView>
       <Button id="btnRegistrar" layoutX="157.0" layoutY="12.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />

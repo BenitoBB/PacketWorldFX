@@ -87,6 +87,21 @@ public class FXMLFormularioUnidadController implements Initializable {
         );
     }
 
+    private boolean validarVIN() {
+        String vin = tfVIN.getText().trim();
+
+        if (vin.length() != 17) {
+            Utilidades.mostrarAlertaSimple(
+                    "VIN inválido",
+                    "El VIN debe contener exactamente 17 caracteres.",
+                    Alert.AlertType.WARNING
+            );
+            tfVIN.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
     public void inicializarDatos(Unidad unidadEdicion, INotificador observador) {
         this.unidadEdicion = unidadEdicion;
         this.observador = observador;
@@ -120,6 +135,11 @@ public class FXMLFormularioUnidadController implements Initializable {
     private void clickGuardar(ActionEvent event) {
         // Validar campos obligatorios
         if (!validarCamposObligatorios()) {
+            return;
+        }
+
+        // VALIDAR VIN (17 caracteres)
+        if (!validarVIN()) {
             return;
         }
 

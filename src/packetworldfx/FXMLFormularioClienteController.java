@@ -82,7 +82,7 @@ public class FXMLFormularioClienteController implements Initializable {
         if (!(boolean) respuesta.get("error")) {
             List<String> colonias = (List<String>) respuesta.get("colonias");
             cbColonia.setItems(FXCollections.observableArrayList(colonias));
-            cbColonia.getSelectionModel().selectFirst();
+            cbColonia.getSelectionModel().clearSelection();
         } else {
             cbColonia.getItems().clear();
         }
@@ -101,6 +101,8 @@ public class FXMLFormularioClienteController implements Initializable {
                 || !tfCorreo.getText().trim().equals(clienteEdicion.getCorreo())
                 || !tfCalle.getText().trim().equals(clienteEdicion.getDireccion().getCalle())
                 || !tfNumeroCalle.getText().trim().equals(clienteEdicion.getDireccion().getNumero())
+                || !String.valueOf(cbColonia.getValue())
+                        .equals(String.valueOf(clienteEdicion.getDireccion().getColonia()))
                 || !tfCodigoPostal.getText().trim().equals(clienteEdicion.getDireccion().getCodigoPostal());
     }
 
@@ -173,6 +175,12 @@ public class FXMLFormularioClienteController implements Initializable {
 
         // Dirección
         Direccion direccion = new Direccion();
+        // SI ES EDICIÓN → conservar ID
+        if (clienteEdicion != null && clienteEdicion.getDireccion() != null) {
+            direccion.setIdDireccion(
+                    clienteEdicion.getDireccion().getIdDireccion()
+            );
+        }
         direccion.setCalle(tfCalle.getText().trim());
         direccion.setNumero(tfNumeroCalle.getText().trim());
         direccion.setCodigoPostal(tfCodigoPostal.getText().trim());
@@ -183,6 +191,16 @@ public class FXMLFormularioClienteController implements Initializable {
         cliente.setDireccion(direccion);
 
         Respuesta respuesta;
+
+        // conservar ciudad y estado si no se editan
+        if (clienteEdicion != null && clienteEdicion.getDireccion() != null) {
+            direccion.setCiudad(
+                    clienteEdicion.getDireccion().getCiudad()
+            );
+            direccion.setEstado(
+                    clienteEdicion.getDireccion().getEstado()
+            );
+        }
 
         if (clienteEdicion == null) {
             // REGISTRO

@@ -52,7 +52,7 @@ public class ConexionAPI {
             conexionHTTP.setRequestProperty("Content-Type", contentType);
             conexionHTTP.setDoOutput(true);
             OutputStream os = conexionHTTP.getOutputStream();
-            os.write(parametros.getBytes());
+            os.write(parametros.getBytes(StandardCharsets.UTF_8));
             os.flush();
             os.close();
             int codigo = conexionHTTP.getResponseCode();

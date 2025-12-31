@@ -8,22 +8,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLClientesController">
    <children>
-      <TableView fx:id="tvClientes" layoutX="11.0" layoutY="60.0" prefHeight="200.0" prefWidth="747.0" stylesheets="@Style.css">
+      <TableView fx:id="tvClientes" layoutX="11.0" layoutY="60.0" prefHeight="200.0" prefWidth="732.0" stylesheets="@Style.css">
         <columns>
           <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
-          <TableColumn fx:id="colAPaterno" prefWidth="75.0" text="A. Paterno" />
-            <TableColumn fx:id="colAMaterno" prefWidth="75.0" text="A. Materno" />
-            <TableColumn fx:id="colCalle" prefWidth="75.0" text="Calle" />
-            <TableColumn fx:id="colNumero" prefWidth="75.0" text="#" />
-            <TableColumn fx:id="colColonia" prefWidth="75.0" text="Colonia" />
-            <TableColumn fx:id="colCodigoPostal" prefWidth="111.55963134765625" text="Código Postal" />
-            <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Telefono" />
-            <TableColumn fx:id="colCorreo" prefWidth="109.0" text="Correo" />
+          <TableColumn fx:id="colAPaterno" prefWidth="95.88359069824219" text="Apellido Pat." />
+            <TableColumn fx:id="colAMaterno" prefWidth="95.27549743652344" text="Apellido Mat." />
+            <TableColumn fx:id="colCalle" prefWidth="73.7838134765625" text="Calle" />
+            <TableColumn fx:id="colNumero" prefWidth="45.950103759765625" text="Núm." />
+            <TableColumn fx:id="colColonia" prefWidth="66.04986572265625" text="Colonia" />
+            <TableColumn fx:id="colCodigoPostal" prefWidth="58.0" text="C.P." />
+            <TableColumn fx:id="colTelefono" prefWidth="100.0" text="Teléfono" />
+            <TableColumn fx:id="colCorreo" prefWidth="116.3780517578125" text="Correo" />
         </columns>
       </TableView>
-      <TextField fx:id="tfBuscar" layoutX="110.0" layoutY="11.0" prefHeight="35.0" prefWidth="236.0" promptText="Buscar por Nombre, Número o Correo" stylesheets="@Style.css" />
-      <Button id="btnRegistrar" layoutX="357.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickRegistrar" stylesheets="@Style.css" text="Registrar" />
-      <Button id="btnEditar" layoutX="450.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEditar" stylesheets="@Style.css" text="Editar" />
-      <Button id="btnEliminar" layoutX="524.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEliminar" stylesheets="@Style.css" text="Eliminar" />
+      <TextField fx:id="tfBuscar" layoutX="152.0" layoutY="11.0" prefHeight="35.0" prefWidth="236.0" promptText="Buscar por Nombre, Número o Correo" stylesheets="@Style.css" />
+      <Button id="btnRegistrar" layoutX="399.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickRegistrar" stylesheets="@Style.css" text="Registrar" />
+      <Button id="btnEditar" layoutX="492.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEditar" stylesheets="@Style.css" text="Editar" />
+      <Button id="btnEliminar" layoutX="566.0" layoutY="11.0" mnemonicParsing="false" onAction="#clickEliminar" stylesheets="@Style.css" text="Eliminar" />
    </children>
 </AnchorPane>

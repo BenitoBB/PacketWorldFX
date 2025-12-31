@@ -30,7 +30,7 @@ public class SEPOMEXImp {
             }
 
             BufferedReader br = new BufferedReader(
-                    new InputStreamReader(is, StandardCharsets.UTF_8)
+                    new InputStreamReader(is, StandardCharsets.ISO_8859_1)
             );
 
             String linea;

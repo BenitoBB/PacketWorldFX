@@ -175,7 +175,6 @@ public class FXMLFormularioColaboradorController implements Initializable {
         this.colaboradorEdicion = colaboradorEdicion;
         this.observador = observador;
 
-        // Cargar roles y sucursales primero
         cargarRoles();
         cargarSucursales();
 
@@ -189,38 +188,30 @@ public class FXMLFormularioColaboradorController implements Initializable {
             tfCorreo.setText(colaboradorEdicion.getCorreo());
             tfLicencia.setText(colaboradorEdicion.getNumeroLicencia());
 
-            // Seleccionar Rol
             int posicionRol = obtenerPosicionRol(colaboradorEdicion.getIdRol());
             cbRol.getSelectionModel().select(posicionRol);
-            // Deshabilitar cambio de rol en edición
             cbRol.setDisable(true);
-            // No permitir cambiar número de personal
+
             tfNoPersonal.setEditable(false);
 
-            // Seleccionar Sucursal
             int posicionSucursal = obtenerPosicionSucursal(colaboradorEdicion.getIdSucursal());
             cbSucursal.getSelectionModel().select(posicionSucursal);
 
-            // No permitir cambiar número de personal
-            tfNoPersonal.setEditable(false);
-
-            // Mostrar u ocultar licencia según rol
             mostrarCampoLicencia(colaboradorEdicion.getIdRol());
 
-            // Password 
             pfPassword.clear();
             pfPassword.setPromptText("Deja vacío si no deseas cambiar la contraseña");
-        }
 
-        // Cambio de foto
-        if (colaboradorEdicion.getIdColaborador() != null) {
-            byte[] foto = ColaboradorImp.obtenerFoto(
-                    colaboradorEdicion.getIdColaborador()
-            );
+            // FOTO SOLO EN EDICIÓN
+            if (colaboradorEdicion.getIdColaborador() != null) {
+                byte[] foto = ColaboradorImp.obtenerFoto(
+                        colaboradorEdicion.getIdColaborador()
+                );
 
-            if (foto != null && foto.length > 0) {
-                Image img = new Image(new ByteArrayInputStream(foto));
-                ivFoto.setImage(img);
+                if (foto != null && foto.length > 0) {
+                    Image img = new Image(new ByteArrayInputStream(foto));
+                    ivFoto.setImage(img);
+                }
             }
         }
     }

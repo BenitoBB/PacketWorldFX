@@ -12,12 +12,12 @@
         <columns>
           <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
           <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
-            <TableColumn fx:id="colCalle" prefWidth="75.0" text="Calle" />
-            <TableColumn fx:id="colNumero" prefWidth="75.0" text="#" />
-            <TableColumn fx:id="colColonia" prefWidth="75.0" text="Colonia" />
-            <TableColumn fx:id="colCodigoPostal" prefWidth="110.8399658203125" text="Código Postal" />
-            <TableColumn fx:id="colCiudad" prefWidth="89.9599609375" text="Ciudad" />
-            <TableColumn fx:id="colEstado" prefWidth="78.99993896484375" text="Estado" />
+            <TableColumn fx:id="colCalle" prefWidth="109.34800720214844" text="Calle" />
+            <TableColumn fx:id="colNumero" prefWidth="46.65203857421875" text="Núm." />
+            <TableColumn fx:id="colColonia" prefWidth="86.9654541015625" text="Colonia" />
+            <TableColumn fx:id="colCodigoPostal" prefWidth="65.42633056640625" text="C.P." />
+            <TableColumn fx:id="colCiudad" prefWidth="95.23504638671875" text="Ciudad" />
+            <TableColumn fx:id="colEstado" prefWidth="93.0" text="Estado" />
         </columns>
       </TableView>
       <Button id="btnRegistrar" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickRegistrar" text="Registrar" />
