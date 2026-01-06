@@ -12,6 +12,9 @@ public class Constantes {
     public static final String URL_INEGI = "https://gaia.inegi.org.mx/wscatgeo/mgee/";
     // URL INEGI Código Postal
     public static final String URL_INEGI_CP = "https://gaia.inegi.org.mx/wscatgeo/cp/";
+    // URL DISTANCIA
+    public static final String URL_DISTANCIA = "http://sublimas.com.mx:8080/calculadora/api/envios/distancia/";
+
     
 
     // Peticiones 

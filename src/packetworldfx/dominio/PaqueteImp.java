@@ -76,7 +76,7 @@ public class PaqueteImp {
             respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
         } else {
             respuesta.setError(true);
-            respuesta.setMensaje("Error al registrar el paquete");
+            respuesta.setMensaje("Error al registrar el paquete: " + respuestaAPI.getContenido());
         }
 
         return respuesta;
@@ -177,4 +177,44 @@ public class PaqueteImp {
 
         return respuesta;
     }
+
+    // Obtener paquetes disponibles
+    public static List<Paquete> obtenerDisponibles() {
+
+        List<Paquete> paquetes = null;
+
+        String URL = Constantes.URL_WS + "paquete/disponibles";
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Paquete>>() {
+            }.getType();
+            paquetes = gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+        }
+
+        return paquetes;
+    }
+
+    public static List<Paquete> buscarPorGuia(String guia) {
+
+        List<Paquete> paquetes = null;
+
+        String URL = Constantes.URL_WS
+                + "paquete/buscar-por-guia/"
+                + guia;
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Paquete>>() {
+            }.getType();
+            paquetes = gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+        }
+
+        return paquetes;
+    }
+
 }

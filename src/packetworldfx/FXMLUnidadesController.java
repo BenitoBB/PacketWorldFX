@@ -227,7 +227,14 @@ public class FXMLUnidadesController implements Initializable, INotificador {
         }
 
         Respuesta respuesta = UnidadImp.bajaUnidad(seleccionado.getIdUnidad(), motivo);
-
+        if (respuesta.isError()) {
+            Utilidades.mostrarAlertaSimple(
+                    "No se puede dar de baja la unidad",
+                    respuesta.getMensaje(),
+                    Alert.AlertType.WARNING
+            );
+            return;
+        }
         if (!respuesta.isError()) {
             Utilidades.mostrarAlertaSimple(
                     "Unidad dada de baja",

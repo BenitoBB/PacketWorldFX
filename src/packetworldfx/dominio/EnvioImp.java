@@ -3,6 +3,7 @@ package packetworldfx.dominio;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.util.List;
 import packetworldfx.conexion.ConexionAPI;
@@ -253,6 +254,92 @@ public class EnvioImp {
         }
 
         return respuesta;
+    }
+
+    public static Respuesta recalcularCostoEnvio(int idEnvio) {
+
+        Respuesta respuesta = new Respuesta();
+
+        try {
+            String url = Constantes.URL_WS
+                    + "envio/recalcular-costo/" + idEnvio;
+
+            RespuestaHTTP respuestaAPI = ConexionAPI.peticionSinBody(
+                    url,
+                    Constantes.PETICION_PUT
+            );
+
+            if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+                Gson gson = new Gson();
+                respuesta = gson.fromJson(
+                        respuestaAPI.getContenido(),
+                        Respuesta.class
+                );
+            } else {
+                respuesta.setError(true);
+                respuesta.setMensaje("No se pudo recalcular el costo del envío.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            respuesta.setError(true);
+            respuesta.setMensaje("Error inesperado al recalcular el costo.");
+        }
+
+        return respuesta;
+    }
+    
+    // Método utilitario / pruebas
+    public static BigDecimal calcularCostoEstimado(
+            String cpOrigen,
+            String cpDestino,
+            int numeroPaquetes) {
+
+        double distancia = DistanciaImp.obtenerDistancia(cpOrigen, cpDestino);
+
+        System.out.println("CP Origen: " + cpOrigen);
+        System.out.println("CP Destino: " + cpDestino);
+        System.out.println("Distancia WS: " + distancia);
+
+        if (distancia <= 0) {
+            return BigDecimal.ZERO;
+        }
+
+        double costoKm;
+
+        if (distancia <= 200) {
+            costoKm = 4.0;
+        } else if (distancia <= 500) {
+            costoKm = 3.0;
+        } else if (distancia <= 1000) {
+            costoKm = 2.0;
+        } else if (distancia <= 2000) {
+            costoKm = 1.0;
+        } else {
+            costoKm = 0.5;
+        }
+
+        double costoPaquetes;
+        switch (numeroPaquetes) {
+            case 1:
+                costoPaquetes = 0;
+                break;
+            case 2:
+                costoPaquetes = 50;
+                break;
+            case 3:
+                costoPaquetes = 80;
+                break;
+            case 4:
+                costoPaquetes = 110;
+                break;
+            default:
+                costoPaquetes = 150;
+        }
+
+        double total = (distancia * costoKm) + costoPaquetes;
+
+        return BigDecimal.valueOf(total);
     }
 
 }

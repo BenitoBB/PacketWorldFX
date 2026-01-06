@@ -1,6 +1,7 @@
 package packetworldfx;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -94,32 +95,46 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
                 buscarDireccionPorCP();
             }
         });
+        lbCostoEnvio.setText("Se calculará asignando paquetes");
+        lbCostoEnvio.setStyle("-fx-font-size: 11");
         agregarListenersCalculo();
+        //agregarListenersCalculo();
 
     }
 
-    private void calcularCosto() {
+    /*
+    private void actualizarCostoEstimado() {
 
-        double costoBase = 80.0;
-
-        if (cbEstado.getValue() != null
-                && !cbEstado.getValue().equalsIgnoreCase("Veracruz")) {
-            costoBase += 40;
+        if (modoEdicion) {
+            return;
         }
 
-        lbCostoEnvio.setText(
-                String.format("$ %.2f", costoBase)
-        );
-    }
+        if (cbSucursalOrigen.getValue() == null
+                || !tfCodigoPostal.getText().matches("\\d{5}")) {
 
+            lbCostoEnvio.setText("$ 0.00");
+            return;
+        }
+
+        // ESTIMADO SOLO VISUAL
+        BigDecimal costo = EnvioImp.calcularCostoEstimado(
+                "CP_ORIGEN_SIMBOLICO",
+                tfCodigoPostal.getText(),
+                1
+        );
+
+        lbCostoEnvio.setText(String.format("$ %.2f", costo));
+    }
+     */
+
+ /*
     private void agregarListenersCalculo() {
 
         recalcularEnvio = () -> {
             if (!modoEdicion
                     && clienteSeleccionado != null
                     && cbSucursalOrigen.getValue() != null
-                    && cbCiudad.getValue() != null
-                    && cbEstado.getValue() != null) {
+                    && cbCiudad.getValue() != null) {
 
                 if (lbNumeroGuia.getText() == null || lbNumeroGuia.getText().isEmpty()) {
 
@@ -132,9 +147,10 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
 
                     lbNumeroGuia.setText(guia);
                 }
-
-                calcularCosto();
             }
+
+            // EL COSTO SIEMPRE SE CALCULA
+            actualizarCostoEstimado();
         };
 
         tfNombreDestinatario.textProperty().addListener((o, a, b) -> recalcularEnvio.run());
@@ -147,6 +163,45 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
         cbSucursalOrigen.valueProperty().addListener((o, a, b) -> recalcularEnvio.run());
         cbCiudad.valueProperty().addListener((o, a, b) -> recalcularEnvio.run());
         cbEstado.valueProperty().addListener((o, a, b) -> recalcularEnvio.run());
+    }
+     */
+    private void agregarListenersCalculo() {
+
+        recalcularEnvio = () -> {
+
+            if (modoEdicion) {
+                return;
+            }
+
+            if (datosListosParaGuia()
+                    && (lbNumeroGuia.getText() == null
+                    || lbNumeroGuia.getText().isEmpty())) {
+
+                String guia = Validaciones.generarNumeroGuia(
+                        clienteSeleccionado.getNombre(),
+                        tfNombreDestinatario.getText(),
+                        cbSucursalOrigen.getValue().getNombre(),
+                        cbCiudad.getValue()
+                );
+
+                lbNumeroGuia.setText(guia);
+            }
+        };
+
+        tfNombreDestinatario.textProperty().addListener((o, a, b) -> recalcularEnvio.run());
+        tfAPaternoDestinatario.textProperty().addListener((o, a, b) -> recalcularEnvio.run());
+        tfAMaternoDestinatario.textProperty().addListener((o, a, b) -> recalcularEnvio.run());
+        tfCodigoPostal.textProperty().addListener((o, a, b) -> recalcularEnvio.run());
+
+        cbSucursalOrigen.valueProperty().addListener((o, a, b) -> recalcularEnvio.run());
+        cbCiudad.valueProperty().addListener((o, a, b) -> recalcularEnvio.run());
+    }
+
+    private boolean datosListosParaGuia() {
+        return clienteSeleccionado != null
+                && !tfNombreDestinatario.getText().trim().isEmpty()
+                && cbSucursalOrigen.getValue() != null
+                && cbCiudad.getValue() != null;
     }
 
     private boolean camposCompletos() {
@@ -166,10 +221,15 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
     private void cargarDatosEnvio() {
 
         lbNumeroGuia.setText(envioEdicion.getNumeroGuia());
-        lbCostoEnvio.setText(
-                String.format("$ %.2f", envioEdicion.getCosto())
-        );
-        lbCostoEnvio.setDisable(true);
+        if (envioEdicion.getCosto().compareTo(BigDecimal.ZERO) == 0) {
+            lbCostoEnvio.setText("$0.00 (Sin paquetes)");
+        } else {
+            lbCostoEnvio.setText(
+                    
+                    String.format("$ %.2f", envioEdicion.getCosto())
+            );
+            lbCostoEnvio.setStyle("-fx-font-size: 13");
+        }
 
         tfNombreDestinatario.setText(envioEdicion.getNombreDestinatario());
         tfAPaternoDestinatario.setText(envioEdicion.getApellidoPaternoDestinatario());
@@ -448,8 +508,7 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
             return;
         }
 
-        calcularCosto();
-
+        //actualizarCostoEstimado();
         RSEnvio envio = new RSEnvio();
 
         envio.setNumeroGuia(lbNumeroGuia.getText());
@@ -474,13 +533,6 @@ public class FXMLFormularioEnvioController implements Initializable, ISeleccionC
         envio.setCodigoPostal(tfCodigoPostal.getText().trim());
         envio.setCiudad(cbCiudad.getValue());
         envio.setEstado(cbEstado.getValue());
-
-        // Costo
-        envio.setCosto(
-                new java.math.BigDecimal(
-                        lbCostoEnvio.getText().replace("$", "").trim()
-                )
-        );
 
         Respuesta respuesta = EnvioImp.registrarEnvio(envio);
 

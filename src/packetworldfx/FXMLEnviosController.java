@@ -48,6 +48,8 @@ public class FXMLEnviosController implements Initializable {
 
     private List<RSEnvioTabla> listaEnvios;
     private ObservableList<RSEnvioTabla> envios;
+    @FXML
+    private TableColumn<RSEnvioTabla, String> colCosto;
 
     /**
      * Initializes the controller class.
@@ -60,7 +62,6 @@ public class FXMLEnviosController implements Initializable {
         tfBuscar.textProperty().addListener((obs, oldText, newText) -> {
             filtrarEnvios(newText);
         });
-
     }
 
     private void filtrarEnvios(String texto) {
@@ -121,6 +122,12 @@ public class FXMLEnviosController implements Initializable {
                         : "Sin asignar"
                 )
         );
+        colCosto.setCellValueFactory(cd
+                -> new SimpleStringProperty(
+                        "$" + String.format("%.2f", cd.getValue().getCosto())
+                )
+        );
+
     }
 
     private void cargarEnvios() {

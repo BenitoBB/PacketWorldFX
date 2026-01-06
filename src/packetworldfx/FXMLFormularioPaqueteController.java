@@ -17,7 +17,6 @@ import packetworldfx.utilidad.Utilidades;
 import packetworldfx.utilidad.Validaciones;
 
 /**
- * FXML Controller class
  *
  * @authors Ohana & Benito
  */
@@ -35,12 +34,9 @@ public class FXMLFormularioPaqueteController implements Initializable {
     private TextField tfProfundidad;
 
     private Paquete paqueteEdicion;
-    private INotificador observador;
     private Paquete paqueteOriginal;
+    private INotificador observador;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Validaciones.letrasYNumeros(tfDescripcion);
@@ -64,7 +60,7 @@ public class FXMLFormularioPaqueteController implements Initializable {
         this.observador = observador;
 
         if (paqueteEdicion != null) {
-            // Copia para comparar cambios
+            // Copia para detectar cambios
             paqueteOriginal = new Paquete();
             paqueteOriginal.setDescripcion(paqueteEdicion.getDescripcion());
             paqueteOriginal.setPeso(paqueteEdicion.getPeso());
@@ -92,6 +88,7 @@ public class FXMLFormularioPaqueteController implements Initializable {
 
     @FXML
     private void clickGuardar(ActionEvent event) {
+
         // 1. Campos obligatorios
         if (!Validaciones.validarCamposObligatorios(
                 new TextField[]{
@@ -110,6 +107,7 @@ public class FXMLFormularioPaqueteController implements Initializable {
 
         // 3. Construir Paquete
         Paquete paquete = new Paquete();
+        paquete.setIdEnvio(null);
         paquete.setDescripcion(tfDescripcion.getText().trim());
         paquete.setPeso(new BigDecimal(tfPeso.getText().trim()));
         paquete.setAlto(new BigDecimal(tfAlto.getText().trim()));
@@ -119,7 +117,9 @@ public class FXMLFormularioPaqueteController implements Initializable {
         Respuesta respuesta;
 
         if (paqueteEdicion != null) {
-            // EDICIÓN
+            // ==========================
+            // EDICIÓN DE PAQUETE
+            // ==========================
             paquete.setIdPaquete(paqueteEdicion.getIdPaquete());
             paquete.setIdEnvio(paqueteEdicion.getIdEnvio());
 
@@ -134,12 +134,9 @@ public class FXMLFormularioPaqueteController implements Initializable {
             }
 
             respuesta = PaqueteImp.actualizar(paquete);
-        } else {
-            // REGISTRO
-            paquete.setIdEnvio(paqueteEdicion != null
-                    ? paqueteEdicion.getIdEnvio()
-                    : 1);
 
+        } else {
+      
             respuesta = PaqueteImp.registrar(paquete);
         }
 

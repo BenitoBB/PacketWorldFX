@@ -56,6 +56,24 @@ public class FXMLPaquetesController implements Initializable, INotificador {
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarPaquetesIniciales();
+        tfBuscar.textProperty().addListener((obs, oldValue, newValue) -> {
+            filtrarPaquetes(newValue);
+        });
+    }
+
+    private void filtrarPaquetes(String texto) {
+
+        if (texto == null || texto.trim().isEmpty()) {
+            cargarPaquetesIniciales();
+            return;
+        }
+
+        List<Paquete> lista = PaqueteImp.buscarPorGuia(texto.trim());
+
+        if (lista != null) {
+            paquetes = FXCollections.observableArrayList(lista);
+            tvPaquetes.setItems(paquetes);
+        }
     }
 
     private void configurarTabla() {

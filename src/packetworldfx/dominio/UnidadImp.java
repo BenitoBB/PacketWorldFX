@@ -116,12 +116,9 @@ public class UnidadImp {
 
         Respuesta respuesta = new Respuesta();
 
-        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK
-                || respuestaAPI.getCodigo() == HttpURLConnection.HTTP_NO_CONTENT) {
-
-            respuesta.setError(false);
-            respuesta.setMensaje("Unidad dada de baja correctamente");
-
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
         } else {
             respuesta.setError(true);
             respuesta.setMensaje(Constantes.MSJ_ERROR_ELIMINAR_UNIDAD);

@@ -203,7 +203,13 @@ public class FXMLAsignacionPaqueteEnvioController implements Initializable {
         );
 
         if (!r.isError()) {
+            Utilidades.mostrarAlertaSimple(
+                    "Paquete asignado",
+                    "El paquete fue asignado y el costo del envío se actualizó.",
+                    Alert.AlertType.INFORMATION
+            );
             cargarPaquetes();
+            cargarEnvios();
         } else {
             Utilidades.mostrarAlertaSimple(
                     "Error",
@@ -240,6 +246,7 @@ public class FXMLAsignacionPaqueteEnvioController implements Initializable {
 
         if (!r.isError()) {
             cargarPaquetes();
+            cargarEnvios();
         } else {
             Utilidades.mostrarAlertaSimple(
                     "Error",

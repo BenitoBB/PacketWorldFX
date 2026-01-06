@@ -20,6 +20,11 @@
             </Button>
             <VBox id="sidebar-vbox" alignment="CENTER_LEFT" layoutY="29.0" prefHeight="205.0" prefWidth="132.0" stylesheets="@Style.css">
                <children>
+                  <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrDashboard" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="Dashboard">
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
+                  </Button>
                   <Button id="menu-button" mnemonicParsing="false" onAction="#clickIrColaboradores" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: transparent;" text="Colaboradores">
                      <font>
                         <Font name="SansSerif Regular" size="12.0" />
@@ -57,7 +62,7 @@
       <AnchorPane id="apCentral" fx:id="apCentral" layoutX="132.0" layoutY="55.0" prefHeight="441.0" prefWidth="775.0" style="-fx-background-color: #FFFFFF;" />
       <Pane prefHeight="59.0" prefWidth="899.0" style="-fx-background-color: #1D4E79;">
          <children>
-            <Label fx:id="lbHeader" layoutX="128.0" layoutY="18.0" text="Packet-World" textFill="WHITE">
+            <Label fx:id="lbHeader" layoutX="131.0" layoutY="18.0" text="Packet-World" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="22.0" />
                </font>

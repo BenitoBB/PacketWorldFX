@@ -6,19 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1197.0" style="-fx-background-color: #DBE0E4;" stylesheets="@Style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="packetworldfx.FXMLAsignacionPaqueteEnvioController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1197.0" style="-fx-background-color: #DBE0E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLAsignacionPaqueteEnvioController">
    <children>
-      <Label fx:id="lbIndicacion" layoutX="85.0" layoutY="29.0" text="Selecciona un paquete para asignarle un envio." />
-      <Button id="btnAsignar" layoutX="579.0" layoutY="105.0" mnemonicParsing="false" onAction="#clickAsignar" text="Asginar" />
-      <Button id="btnCerrarSesion" layoutX="588.0" layoutY="185.0" mnemonicParsing="false" onAction="#clickDeasignar" text="Desasignar" />
-      <TableView fx:id="tvEnvio" layoutX="741.0" layoutY="89.0" prefHeight="200.0" prefWidth="461.0">
+      <Label fx:id="lbIndicacion" layoutX="459.0" layoutY="24.0" text="Selecciona un paquete para asignarle un envio." />
+      <Button id="btnAsignar" layoutX="576.0" layoutY="161.0" mnemonicParsing="false" onAction="#clickAsignar" text="Asginar" />
+      <Button id="btnCerrarSesion" layoutX="567.0" layoutY="206.0" mnemonicParsing="false" onAction="#clickDeasignar" text="Desasignar" />
+      <TableView fx:id="tvEnvio" layoutX="671.0" layoutY="88.0" prefHeight="200.0" prefWidth="461.0">
          <columns>
-            <TableColumn fx:id="colNumeroGuia" prefWidth="75.0" text="Guía" />
-            <TableColumn fx:id="colOrigen" prefWidth="75.0" text="Origen" />
-            <TableColumn fx:id="colDestino" prefWidth="75.0" text="Destino" />
-            <TableColumn fx:id="colEstado" prefWidth="108.99995422363281" text="Estado" />
-            <TableColumn fx:id="colConductorActual" prefWidth="120.27618408203125" text="Conductor Actual" />
+            <TableColumn fx:id="colNumeroGuia" prefWidth="142.94952392578125" text="Guía" />
+            <TableColumn fx:id="colOrigen" minWidth="0.0" prefWidth="67.542724609375" text="Origen" />
+            <TableColumn fx:id="colDestino" prefWidth="73.678466796875" text="Destino" />
+            <TableColumn fx:id="colEstado" prefWidth="61.13568115234375" text="Estado" />
+            <TableColumn fx:id="colConductorActual" prefWidth="115.86419677734375" text="Conductor Actual" />
          </columns>
       </TableView>
       <TableView fx:id="tvPaquetes" layoutX="52.0" layoutY="89.0" prefHeight="200.0" prefWidth="504.0">

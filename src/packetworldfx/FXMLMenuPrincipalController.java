@@ -35,12 +35,19 @@ public class FXMLMenuPrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lbHeader.setText("Dashboard");
+        cargarVista("FXMLDashboard.fxml");
     }
 
     @FXML
     private void clickCerrarSesion(ActionEvent event) {
         cerrarSesion();
+    }
+
+    @FXML
+    private void clickIrDashboard(ActionEvent event) {
+        lbHeader.setText("Dashboard");
+        cargarVista("FXMLDashboard.fxml");
     }
 
     @FXML
@@ -94,7 +101,7 @@ public class FXMLMenuPrincipalController implements Initializable {
         try {
             // Cerrar sesión nivel global
             Sesion.cerrarSesion();
-            
+
             // 1. Crear la ESCENA
             Parent vista = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml"));
             Scene escenaPrincipal = new Scene(vista);

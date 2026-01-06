@@ -11,14 +11,14 @@
       <TableView fx:id="tvClientes" layoutX="24.0" layoutY="61.0" prefHeight="200.0" prefWidth="747.0">
          <columns>
             <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
-            <TableColumn fx:id="colAPaterno" prefWidth="75.0" text="A. Paterno" />
-            <TableColumn fx:id="colAMaterno" prefWidth="75.0" text="A. Materno" />
-            <TableColumn fx:id="colCalle" prefWidth="75.0" text="Calle" />
-            <TableColumn fx:id="colNumero" prefWidth="75.0" text="#" />
+            <TableColumn fx:id="colAPaterno" prefWidth="89.0" text="Apellito Pat." />
+            <TableColumn fx:id="colAMaterno" prefWidth="83.0" text="Apellido Mat." />
+            <TableColumn fx:id="colCalle" prefWidth="83.0" text="Calle" />
+            <TableColumn fx:id="colNumero" prefWidth="45.0" text="Núm." />
             <TableColumn fx:id="colColonia" prefWidth="75.0" text="Colonia" />
             <TableColumn fx:id="colCodigoPostal" prefWidth="111.55963134765625" text="Código Postal" />
             <TableColumn fx:id="colTelefono" prefWidth="75.0" text="Telefono" />
-            <TableColumn fx:id="colCorreo" prefWidth="109.0" text="Correo" />
+            <TableColumn fx:id="colCorreo" prefWidth="102.0" text="Correo" />
          </columns>
       </TableView>
       <TextField fx:id="tfBuscar" layoutX="283.0" layoutY="17.0" prefHeight="35.0" prefWidth="243.0" promptText="Buscar por Nombre, Número o Correo" />

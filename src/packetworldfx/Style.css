@@ -197,6 +197,11 @@
     -fx-text-fill: black; 
     -fx-font-weight: normal;
 }
+#label-texto-grande {
+    -fx-font-size: 23px;
+    -fx-text-fill: #004B8D; 
+    -fx-font-weight: bold;
+}
 #label-texto-alt{
     -fx-text-fill: white; 
 }

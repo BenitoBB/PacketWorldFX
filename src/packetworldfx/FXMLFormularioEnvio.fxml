@@ -10,60 +10,56 @@
    <children>
       <Button id="btnCerrarSesion" layoutX="590.0" layoutY="569.0" mnemonicParsing="false" onAction="#clickCancelar" text="Cancelar" />
       <Button id="btnRegistrar" layoutX="500.0" layoutY="569.0" mnemonicParsing="false" onAction="#clickGuardar" text="Guardar" />
-      <Pane id="card-form" layoutX="71.0" layoutY="33.0" prefHeight="200.0" prefWidth="200.0">
+      <Pane id="card-form" layoutX="71.0" layoutY="33.0" prefHeight="200.0" prefWidth="262.0">
          <children>
-            <Label id="label-titulo" layoutX="30.0" layoutY="9.0" text="Cliente Remitente" />
+            <Label id="label-titulo" layoutX="30.0" layoutY="10.0" text="Cliente Remitente" />
             <Label id="label-texto" layoutX="18.0" layoutY="50.0" text="Nombre: " />
             <Label id="label-texto" layoutX="26.0" layoutY="81.0" text="Correo:" />
             <Label id="label-texto" layoutX="16.0" layoutY="112.0" text="Telefono:" />
             <Label id="label-texto" fx:id="lbNombreRemitente" layoutX="76.0" layoutY="50.0" text="..." />
             <Label id="label-texto" fx:id="lbCorreoRemitente" layoutX="77.0" layoutY="81.0" text="..." />
             <Label id="label-texto" fx:id="lbTelefonoRemitente" layoutX="78.0" layoutY="112.0" text="..." />
-            <Button id="btnEditar" layoutX="41.0" layoutY="152.0" mnemonicParsing="false" onAction="#clickBuscarCliente" text="Buscar Cliente" />
+            <Button id="btnEditar" layoutX="65.0" layoutY="153.0" mnemonicParsing="false" onAction="#clickBuscarCliente" text="Buscar Cliente" />
          </children>
       </Pane>
-      <Pane id="card-form" layoutX="279.0" layoutY="34.0" prefHeight="200.0" prefWidth="391.0">
+      <Pane id="card-form" layoutX="340.0" layoutY="34.0" prefHeight="200.0" prefWidth="330.0">
          <children>
             <Label id="label-titulo" layoutX="114.0" layoutY="10.0" text="Destinatario" />
-            <Label id="label-texto" layoutX="70.0" layoutY="60.0" prefHeight="24.0" prefWidth="59.0" text="Nombre:" />
-            <TextField fx:id="tfNombreDestinatario" layoutX="129.0" layoutY="54.0" prefHeight="35.0" prefWidth="100.0" />
-            <Label id="label-texto" layoutX="21.0" layoutY="101.0" text="Apellido Paterno:" />
-            <Label id="label-texto" layoutX="16.0" layoutY="143.0" text="Apellido Materno: " />
-            <TextField fx:id="tfAPaternoDestinatario" layoutX="129.0" layoutY="96.0" prefHeight="35.0" prefWidth="99.0" />
-            <TextField fx:id="tfAMaternoDestinatario" layoutX="129.0" layoutY="138.0" prefHeight="35.0" prefWidth="99.0" />
+            <Label id="label-texto" layoutX="76.0" layoutY="53.0" prefHeight="24.0" prefWidth="59.0" text="Nombre:" />
+            <TextField fx:id="tfNombreDestinatario" layoutX="135.0" layoutY="47.0" prefHeight="35.0" prefWidth="160.0" />
+            <Label id="label-texto" layoutX="27.0" layoutY="94.0" text="Apellido Paterno:" />
+            <Label id="label-texto" layoutX="22.0" layoutY="136.0" text="Apellido Materno: " />
+            <TextField fx:id="tfAPaternoDestinatario" layoutX="135.0" layoutY="89.0" prefHeight="35.0" prefWidth="160.0" />
+            <TextField fx:id="tfAMaternoDestinatario" layoutX="135.0" layoutY="131.0" prefHeight="35.0" prefWidth="160.0" />
          </children>
       </Pane>
-      <Pane id="card-form" layoutX="279.0" layoutY="243.0" prefHeight="200.0" prefWidth="391.0">
+      <Pane id="card-form" layoutX="71.0" layoutY="242.0" prefHeight="223.0" prefWidth="599.0">
          <children>
-            <Label id="label-titulo" layoutX="55.0" layoutY="11.0" text="Dirección Destino" />
-            <Label id="label-texto" layoutX="16.0" layoutY="48.0" text="Calle:" />
-            <TextField fx:id="tfCalle" layoutX="55.0" layoutY="42.0" prefHeight="35.0" prefWidth="99.0" />
-            <TextField fx:id="tfNumeroDeCalle" layoutX="261.0" layoutY="43.0" prefHeight="35.0" prefWidth="58.0" />
-            <Label id="label-texto" layoutX="159.0" layoutY="47.0" text="Número de Calle:" />
-            <ComboBox fx:id="cbColonia" layoutX="55.0" layoutY="91.0" prefHeight="31.0" prefWidth="100.0" />
-            <ComboBox fx:id="cbCiudad" layoutX="56.0" layoutY="130.0" prefHeight="31.0" prefWidth="100.0" />
-            <Label id="label-texto" layoutX="7.0" layoutY="95.0" text="Colonia:" />
-            <Label id="label-texto" layoutX="7.0" layoutY="134.0" text="Ciudad:" />
-            <TextField fx:id="tfCodigoPostal" layoutX="245.0" layoutY="128.0" prefHeight="35.0" prefWidth="100.0" />
-            <ComboBox fx:id="cbEstado" layoutX="246.0" layoutY="92.0" prefHeight="31.0" prefWidth="100.0" />
-            <Label id="label-texto" layoutX="196.0" layoutY="96.0" text="Estado:" />
-            <Label id="label-texto" layoutX="166.0" layoutY="132.0" text="Código Postal:" />
+            <Label id="label-titulo" layoutX="18.0" layoutY="14.0" text="Dirección Origen" />
+            <Label id="label-texto" layoutX="17.0" layoutY="48.0" prefHeight="24.0" prefWidth="82.0" text="Sucursal:" />
+            <ComboBox fx:id="cbSucursalOrigen" layoutX="75.0" layoutY="44.0" prefHeight="31.0" prefWidth="150.0" />
+            <Label id="label-titulo" layoutX="18.0" layoutY="86.0" text="Dirección Destino" />
+            <Label id="label-texto" layoutX="23.0" layoutY="129.0" text="Calle:" />
+            <TextField fx:id="tfCalle" layoutX="62.0" layoutY="123.0" prefHeight="35.0" prefWidth="135.0" />
+            <TextField fx:id="tfNumeroDeCalle" layoutX="307.0" layoutY="123.0" prefHeight="35.0" prefWidth="58.0" />
+            <Label id="label-texto" layoutX="213.0" layoutY="131.0" text="Núm. de Calle:" />
+            <ComboBox fx:id="cbColonia" layoutX="433.0" layoutY="125.0" prefHeight="31.0" prefWidth="135.0" />
+            <ComboBox fx:id="cbCiudad" layoutX="64.0" layoutY="176.0" prefHeight="31.0" prefWidth="135.0" />
+            <Label id="label-texto" layoutX="378.0" layoutY="129.0" text="Colonia:" />
+            <Label id="label-texto" layoutX="12.0" layoutY="182.0" text="Ciudad:" />
+            <TextField fx:id="tfCodigoPostal" layoutX="468.0" layoutY="172.0" prefHeight="35.0" prefWidth="100.0" />
+            <ComboBox fx:id="cbEstado" layoutX="265.0" layoutY="176.0" prefHeight="31.0" prefWidth="135.0" />
+            <Label id="label-texto" layoutX="215.0" layoutY="180.0" text="Estado:" />
+            <Label id="label-texto" layoutX="434.0" layoutY="180.0" text="C.P.:" />
          </children>
       </Pane>
-      <Pane id="card-form" layoutX="71.0" layoutY="242.0" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Label id="label-titulo" layoutX="32.0" layoutY="10.0" text="Dirección Origen" />
-            <Label id="label-texto" layoutX="-1.0" layoutY="49.0" prefHeight="24.0" prefWidth="82.0" text="Sucursal:" />
-            <ComboBox fx:id="cbSucursalOrigen" layoutX="73.0" layoutY="48.0" prefHeight="31.0" prefWidth="99.0" />
-         </children>
-      </Pane>
-      <Pane id="card-form" layoutX="73.0" layoutY="455.0" prefHeight="100.0" prefWidth="599.0" style="-fx-background-color: #093A72;">
+      <Pane id="card-form" layoutX="73.0" layoutY="476.0" prefHeight="79.0" prefWidth="599.0" style="-fx-background-color: #093A72;">
          <children>
             <Label id="label-titulo" layoutX="24.0" layoutY="14.0" style="-fx-text-fill: #096E72;" text="Datos del Envío" />
-            <Label id="label-texto-alt" layoutX="27.0" layoutY="60.0" text="Número de Guía:" />
-            <Label id="lbael-text-nrj" fx:id="lbNumeroGuia" layoutX="145.0" layoutY="60.0" />
-            <Label id="label-texto-alt" layoutX="429.0" layoutY="59.0" text="Costo:" />
-            <Label id="lbael-text-nrj" fx:id="lbCostoEnvio" layoutX="479.0" layoutY="58.0" text="0.0" />
+            <Label id="label-texto-alt" layoutX="24.0" layoutY="48.0" text="Número de Guía:" />
+            <Label id="lbael-text-nrj" fx:id="lbNumeroGuia" layoutX="134.0" layoutY="48.0" />
+            <Label id="label-texto-alt" layoutX="377.0" layoutY="46.0" text="Costo:" />
+            <Label id="lbael-text-nrj" fx:id="lbCostoEnvio" layoutX="421.0" layoutY="46.0" text="0.0" />
          </children>
       </Pane>
    </children>

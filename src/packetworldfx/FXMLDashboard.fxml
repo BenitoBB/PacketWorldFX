@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="669.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldfx.FXMLDashboardController">
+   <children>
+      <TableView fx:id="tvUltimosEnvios" layoutX="14.0" layoutY="115.0" prefHeight="200.0" prefWidth="597.0">
+        <columns>
+          <TableColumn fx:id="colNumeroGuia" prefWidth="219.0" text="Número Guía" />
+          <TableColumn fx:id="colFecha" prefWidth="205.0" text="Fecha" />
+            <TableColumn fx:id="colCosto" prefWidth="165.0" text="Costo" />
+        </columns>
+      </TableView>
+      <Pane id="card-form" layoutX="14.0" layoutY="22.0" prefHeight="80.0" prefWidth="120.0">
+         <children>
+            <Label id="label-texto" layoutX="21.0" layoutY="9.0" stylesheets="@Style.css" text="Total Envíos:" />
+            <Label id="label-texto-grande" fx:id="lblTotalEnvios" layoutX="45.0" layoutY="33.0" text="1" />
+         </children>
+      </Pane>
+      <Pane id="card-form" layoutX="147.0" layoutY="22.0" prefHeight="80.0" prefWidth="120.0">
+         <children>
+            <Label id="label-texto" layoutX="19.0" layoutY="9.0" text="Total Clientes:" />
+            <Label id="label-texto-grande" fx:id="lbTotalClientes" layoutX="48.0" layoutY="34.0" text="1" />
+         </children>
+      </Pane>
+      <Pane id="card-form" layoutX="281.0" layoutY="22.0" prefHeight="80.0" prefWidth="150.0">
+         <children>
+            <Label id="label-texto-grande" fx:id="lbTotalColaboradores" layoutX="65.0" layoutY="34.0" text="1" />
+            <Label id="label-texto" layoutX="11.0" layoutY="7.0" text="Total Colaboradores:" />
+         </children>
+      </Pane>
+      <Pane id="card-form" layoutX="444.0" layoutY="22.0" prefHeight="80.0" prefWidth="165.0">
+         <children>
+            <Label id="label-texto" layoutX="11.0" layoutY="10.0" text="Total Envíos Entregados:" />
+            <Label id="label-texto-grande" fx:id="lbTotalEnviosEntregados" layoutX="72.0" layoutY="35.0" text="1" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
