@@ -215,6 +215,18 @@ public class FXMLUnidadesController implements Initializable, INotificador {
             return;
         }
 
+        // VALIDAR ANTES DE PEDIR MOTIVO
+        Respuesta validacion = UnidadImp.puedeDarseDeBaja(seleccionado.getIdUnidad());
+
+        if (validacion.isError()) {
+            Utilidades.mostrarAlertaSimple(
+                    "No se puede dar de baja la unidad",
+                    validacion.getMensaje(),
+                    Alert.AlertType.WARNING
+            );
+            return;
+        }
+        // SOLO SI SE PUEDE, PEDIMOS EL MOTIVO
         String motivo = solicitarMotivoBaja();
 
         if (motivo.isEmpty()) {

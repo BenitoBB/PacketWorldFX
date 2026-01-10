@@ -141,11 +141,13 @@ public class SucursalImp {
                 Constantes.PETICION_PUT
         );
 
-        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK
-                || respuestaAPI.getCodigo() == HttpURLConnection.HTTP_NO_CONTENT) {
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
 
-            respuesta.setError(false);
-            respuesta.setMensaje("Sucursal dada de baja correctamente.");
+            Gson gson = new Gson();
+            respuesta = gson.fromJson(
+                    respuestaAPI.getContenido(),
+                    Respuesta.class
+            );
 
         } else {
             respuesta.setError(true);
@@ -154,11 +156,9 @@ public class SucursalImp {
                 case Constantes.ERROR_MALFORMED_URL:
                     respuesta.setMensaje(Constantes.MSJ_ERROR_URL);
                     break;
-
                 case Constantes.ERROR_PETICION:
                     respuesta.setMensaje(Constantes.MSJ_ERROR_PETICION);
                     break;
-
                 default:
                     respuesta.setMensaje("Error al dar de baja la sucursal.");
                     break;
@@ -167,4 +167,5 @@ public class SucursalImp {
 
         return respuesta;
     }
+
 }

@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -54,7 +53,7 @@ public class FXMLInicioSesionController implements Initializable {
 
     // Verificar Credenciales Validas
     private void verificarCredenciales(String noPersonal, String password) {
-        RSColaborador respuesta = InicioSesionImp.verificarCredenciales(noPersonal, password);
+        RSColaborador respuesta = InicioSesionImp.verificarCredencialesAdminYEjecutivo(noPersonal, password);
         if (!respuesta.isError()) {
             Sesion.iniciarSesion(respuesta.getColaborador());
             Utilidades.mostrarAlertaSimple("Credenciales verificadas", "Bienvenido de vuelta, " + respuesta.getColaborador().getNombre(), Alert.AlertType.INFORMATION);

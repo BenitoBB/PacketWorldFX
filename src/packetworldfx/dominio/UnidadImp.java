@@ -127,4 +127,20 @@ public class UnidadImp {
         return respuesta;
     }
 
+    public static Respuesta puedeDarseDeBaja(int idUnidad) {
+        String URL = Constantes.URL_WS + "unidad/puede-baja/" + idUnidad;
+
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+        Gson gson = new Gson();
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            return gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+        }
+
+        Respuesta r = new Respuesta();
+        r.setError(true);
+        r.setMensaje("No se pudo validar la unidad.");
+        return r;
+    }
+
 }
